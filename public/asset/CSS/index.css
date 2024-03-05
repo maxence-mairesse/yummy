@@ -39,6 +39,9 @@ header h1 span {
     font-size: 0.8em;
     border-right: solid 1px white ;
 }
+#button-navigation:hover{
+    cursor: pointer;
+}
 nav{
     position: absolute;
     background-color: white;
@@ -78,6 +81,10 @@ nav li a:hover{
     transition: .5s;
 }
 /* CSS Main */
+.cards a{
+    text-decoration: none;
+    color: black;
+}
 #recettes-coups-de-coeur{
     margin: auto;
     width: 80%;
@@ -131,7 +138,7 @@ nav li a:hover{
     margin: 1em;
     width:200px;
     overflow: hidden;
-    transition: 1s;
+    transition: .5s;
 }
 .card-head img {
     width: 100%;
@@ -143,18 +150,35 @@ nav li a:hover{
     margin: 50px 0 1em 0;
     color: #ff5513;
 }
-.card:hover{
-    width: 230px;
-    transition: 1s;
-}
+
 
 #ingedients-saison .cards {
+    margin: 0;
+    width: 100%;
     flex-wrap: nowrap;
     justify-content: space-between;
 
 }
-#ingedients-saison .cards .card {
-   width: 100px;
+#ingedients-saison .cards a .card {
+    width: 180px;
+    text-transform: uppercase;
+    transition: .5s;
 
 }
 
+
+#ingedients-saison .cards a .card .card-body {
+
+    height: 50px;
+    padding-top: 25px;
+}
+.card:hover{
+    width: 230px;
+    transition: .5s;
+}
+
+#ingedients-saison .cards a .card:hover {
+    width: 230px;
+    transition: .5s;
+
+}
