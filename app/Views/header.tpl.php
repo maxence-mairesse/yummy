@@ -4,9 +4,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="<?= $absoluteURL ?>/asset/favicon/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="<?= $absoluteURL ?>/asset/CSS/reset.css">
-    <link rel="stylesheet" href="<?= $absoluteURL ?>/asset/CSS/index.css">
+    <link rel="shortcut icon" href="/asset/favicon/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/asset/CSS/reset.css">
+    <link rel="stylesheet" href="/asset/CSS/index.css">
     <script src="https://kit.fontawesome.com/d16614f244.js" crossorigin="anonymous"></script>
     <title>Yummy</title>
 </head>
@@ -33,6 +33,6 @@
             </ul>
         </nav>
     </div>
-    <h1>Yummy <span>おいしい</span></h1>
+    <h1><a href="/">Yummy <span>おいしい</span></a></h1>
 
 </header>

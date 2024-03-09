@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $router = new AltoRouter();
-$router->setBasePath($_SERVER['BASE_URI']);
+// $router->setBasePath($_SERVER['BASE_URI']);
 
 
 $router->map(

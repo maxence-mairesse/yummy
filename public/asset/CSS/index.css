@@ -16,6 +16,12 @@ header h1{
 header h1 span {
     font-size: 0.7em;
 }
+header h1 a{
+   text-decoration: none;
+    color: white;
+}
+
+
 .hidden {
     display: none;
     transition: ease-in .3s;
@@ -159,7 +165,7 @@ nav li a:hover{
     justify-content: space-between;
 
 }
-#ingedients-saison .cards a .card {
+#ingedients-saison .cards  .card {
     width: 180px;
     text-transform: uppercase;
     transition: .5s;
@@ -167,7 +173,7 @@ nav li a:hover{
 }
 
 
-#ingedients-saison .cards a .card .card-body {
+#ingedients-saison .cards  .card .card-body {
 
     height: 50px;
     padding-top: 25px;
@@ -177,8 +183,57 @@ nav li a:hover{
     transition: .5s;
 }
 
-#ingedients-saison .cards a .card:hover {
+#ingedients-saison .cards  .card:hover {
     width: 230px;
     transition: .5s;
 
 }
+.details h2{
+    text-align: center;
+    font-size: 2em;
+    margin-top: 3em;
+}
+
+.presentation{
+    display: flex;
+}
+.details section {
+    margin-top: 2em;
+}
+.details section img {
+    margin-left: 10vw;
+    width: 80%;
+}
+.description{
+    width: 50%;
+    padding: 1em;
+}
+.description ul li:first-child{
+    margin-bottom: 0.5em;
+    width: 80%;
+
+}
+.prepa{
+    width: 60%;
+    margin: auto;
+}
+.prepa h3 {
+    font-size: 1.8em;
+    text-align: start;
+    font-weight: bold;
+    margin-top: 1em;
+    text-transform: uppercase;
+}
+.prepa p {
+margin-top: 0.5em;
+    width: 70%;
+}
+
+hr{
+    width: 50%;
+    margin-top: 2em;
+    border: 2px solid;
+    border-radius: 2px;
+}
+.star{
+color: #ff5513}

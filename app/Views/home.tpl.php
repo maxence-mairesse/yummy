@@ -1,5 +1,4 @@
-<!doctype html>
-
+<?php ?>
 <main>
 
     <section id="recettes-coups-de-coeur">
@@ -10,7 +9,8 @@
 
         <div class="cards">
             <?php foreach ($Recette as $result): ?>
-              <a href="<?=$absoluteURL?>/recette/<?=$result->id?>">  <div class="card">
+
+              <a href="/recette/<?=$result->id?>">  <div class="card">
                     <div class="card-head">
                         <img src="<?= $result->picture?>" alt="image d'apero">
                     </div>
@@ -18,11 +18,27 @@
                         <h3> <?= $result->name?></h3>
                     </div>
                     <div class="card-footer">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+
+                        <?php
+
+                        $rate = $viewData[$result->id];
+                        $int = floor($rate);
+                        $dec = $rate - $int;
+
+                        for ($i = 1; $i <=5; $i++){
+                            if ($i<=$rate){
+                                echo '<i class="fa-solid fa-star "></i>';
+                            }elseif ($i == $int + 1 && $dec >= 0.5){
+                                echo '<i class="fa-solid fa-star-half-stroke"></i>';
+                            }
+
+
+                            else{
+                                echo '<i class="fa-regular fa-star"></i>';
+                            }
+                        }
+                        ?>
+
                     </div>
                 </div>
               </a>
@@ -143,7 +159,7 @@
         <h2> Ingredients de saison </h2>
         <div class="cards">
             <?php  foreach($viewData['ingredient'] as $ingredient):?>
-                <a href="<?=$absoluteURL?>/recette/<?=$ingredient->getId()?>">
+
                 <div class="card">
                     <div class="card-head">
                         <img src="<?= $ingredient->getPicture()?> alt="<?= $ingredient->getName()?>">
@@ -153,7 +169,7 @@
                     </div>
 
                 </div>
-                </a>
+
             <?php endforeach; ?>
         </div>
     </section>

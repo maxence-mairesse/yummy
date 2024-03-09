@@ -1,4 +1,4 @@
-<script src="<?=$absoluteURL?>/asset/JS/index.js"></script>
-<script src="<?=$absoluteURL?>/asset/JS/navigation.js"></script>
+<script src="./asset/JS/index.js"></script>
+<script src="./asset/JS/navigation.js"></script>
 </body>
 </html>
