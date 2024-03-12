@@ -44,7 +44,7 @@ class Dispatcher
 
         // Getting DISPATCH infos provided by AltoRouter
         $this->parseTarget($match['target']);
-        
+
         // Getting URL params (dynamic parts in routes' URL pattern)
         $this->params = $match['params'];
     }
@@ -57,6 +57,7 @@ class Dispatcher
      */
     public function parseTarget($target)
     {
+
         // Getting controller's name and method's name
         // if it's an array
         if (is_array($target)) {

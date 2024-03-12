@@ -11,7 +11,6 @@
     <title>Yummy</title>
 </head>
 <body>
-
 <header>
 
     <div class="navigation">
@@ -34,5 +33,6 @@
         </nav>
     </div>
     <h1><a href="/">Yummy <span>おいしい</span></a></h1>
-
+    <?= isset($_SESSION['appUser']) ? "<span  class='login name'>Bonjour ".$_SESSION['appUser']->getPseudo()."</span> <span><a class='login' href='/logout'> Deconnexion</a></span>
+" : "<a href='/login' class='login name'>connexion</a>" ?>
 </header>

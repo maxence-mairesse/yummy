@@ -208,19 +208,31 @@ class Recette extends CoreController
     }
     public function findById($id){
         $pdo  = Database::getPDO();
-        $sql = "SELECT *, recette.id FROM recette
-    INNER JOIN duree ON recette.duree_id = duree.id 
-    INNER JOIN cuisson ON recette.cuisson_id = cuisson.id 
-    INNER JOIN etape on recette.etape_id = etape.id 
-    where recette.id = :id";
+        $sql = "SELECT recette.*, duree.*, cuisson.*, etape.* FROM recette
+            INNER JOIN duree ON recette.duree_id = duree.id 
+            INNER JOIN cuisson ON recette.cuisson_id = cuisson.id 
+            INNER JOIN etape ON recette.etape_id = etape.id 
+            WHERE recette.id = :id";
         $pdoStatement = $pdo->prepare($sql);
         $pdoStatement->bindParam(':id', $id,PDO::PARAM_INT);
         $pdoStatement->execute();
-// Récupération des résultats
-        $result = $pdoStatement->fetchObject(self::class);
+
+        // Récupération du résultat de la requête sous forme de tableau associatif
+        $result = $pdoStatement->fetch(PDO::FETCH_ASSOC);
+
+        // Vous pouvez maintenant manipuler les données récupérées de vos jointures
+        // par exemple : $result['nom_de_la_colonne']
 
         return $result;
     }
+    public function insert()
+    {
+        // TODO: Implement insert() method.
+    }
 
+    public function update()
+    {
+        // TODO: Implement update() method.
+    }
 
 }

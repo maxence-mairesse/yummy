@@ -53,4 +53,14 @@ public function findAllIngredient()
         $stm = $pdo->query($sql);
         return $stm->fetchAll(PDO::FETCH_CLASS, "\app\Model\Ingedient");
     }
+
+    public function insert()
+    {
+        // TODO: Implement insert() method.
+    }
+
+    public function update()
+    {
+        // TODO: Implement update() method.
+    }
 }

@@ -7,7 +7,7 @@ class ErrorController
 public function error404()
 {
 
-    var_dump('test');
+    var_dump('Erreur 404');
 
 }
 }

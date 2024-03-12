@@ -1,4 +1,4 @@
-<?php ?>
+
 <main>
 
     <section id="recettes-coups-de-coeur">

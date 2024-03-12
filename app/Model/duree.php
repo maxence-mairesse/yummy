@@ -21,4 +21,14 @@ protected $time;
     {
         $this->time = $time;
     }
+
+    public function insert()
+    {
+        // TODO: Implement insert() method.
+    }
+
+    public function update()
+    {
+        // TODO: Implement update() method.
+    }
 }

@@ -68,4 +68,14 @@ protected $recette_id;
       $result = $stmt->fetchAll(PDO::FETCH_CLASS,'app\Model\Rate');
         return $result;
     }
+
+    public function insert()
+    {
+        // TODO: Implement insert() method.
+    }
+
+    public function update()
+    {
+        // TODO: Implement update() method.
+    }
 }

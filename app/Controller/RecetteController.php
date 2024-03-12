@@ -10,7 +10,8 @@ class RecetteController extends CoreController
 {
     public function recetteById($param)
     {
-        $id = $param['id'];
+
+        $id = $param;
         $recette = new Recette();
         $rate = new Rate();
         $rates = $rate->findByRecette($id);
@@ -30,9 +31,8 @@ class RecetteController extends CoreController
         }
 
         $result = $recette->findById($id);
-
-        $this->setTime($result,'time','Preparation');
-        $this->setTime($result,'time_cuisson','Cuisson');
+        $result['preparation']= $this->setTime($result,'time','Preparation');
+        $result['cuisson']= $this->setTime($result,'time_cuisson','Cuisson');
 
 
         $dataToSend['rate']= $rateMoyen;
@@ -44,40 +44,27 @@ class RecetteController extends CoreController
     private function setTime($result,$time,$var)
     {
 
-        $time = DateTime::createFromFormat('H:i:s',$result->$time);
+        $time = DateTime::createFromFormat('H:i:s',$result[$time]);
         $heure = $time->format('H');
         $minutes =$time->format('i');
-        if ($var === 'Cuisson'){
+
             if ($heure == 0){
-                //$dataToSend['time_prepa']= $minutes.' min';
-                $result->setCuisson($minutes.' min');
+              return   ($minutes.' min');
             }else if ($heure >0 && $minutes>0){
-                // $dataToSend['time_prepa']= $heure.'h'.''.$minutes.'min';
-                $result->setCuisson($heure.'h'.''.$minutes.'min');
-
+               return  ($heure.'h'.$minutes.'min');
             }else {
-                // $dataToSend['time_prepa']= $heure.' h';
-
-                $result->setCuisson($heure.' h');
+              return ($heure.' h');
             }
-        }else if ($var === 'Preparation'){
-            if ($heure == 0){
-                //$dataToSend['time_prepa']= $minutes.' min';
-                $result->setPreparation($minutes.' min');
-            }else if ($heure >0 && $minutes>0){
-                // $dataToSend['time_prepa']= $heure.'h'.''.$minutes.'min';
-                $result->setPreparation($heure.'h'.''.$minutes.'min');
 
-            }else {
-                // $dataToSend['time_prepa']= $heure.' h';
-
-                $result->setPreparation($heure.' h');
-            }
+        }
+        public function commentaire()
+        {
+            dump($_POST);
         }
 
 
 
 
-    }
+
 
 }

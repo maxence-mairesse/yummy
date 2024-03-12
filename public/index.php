@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../vendor/autoload.php';
-
+session_start();
 $router = new AltoRouter();
 // $router->setBasePath($_SERVER['BASE_URI']);
 
@@ -10,7 +10,7 @@ $router->map(
     'GET',
     '/',
     [
-    'action'=>'home',
+    'method'=>'home',
     'controller' => '\app\Controller\MainController']
 ,
     'home'
@@ -19,39 +19,69 @@ $router->map(
     'GET',
     '/recette/[i:id]',
     [
-        'action'=>'recetteById',
+        'method'=>'recetteById',
         'controller' => '\app\Controller\RecetteController']
     ,
     'RecetteController'
 );
+$router->map(
+    'POST',
+    '/recette/[i:id]',
+    [
+        'method'=>'commentaire',
+        'controller' => '\app\Controller\RecetteController']
+    ,
+    'commentaire'
+);
 
+
+$router->map(
+    'GET',
+    '/login',
+    [
+        'method'=>'login',
+        'controller' => '\app\Controller\AuthentificationController']
+    ,
+    'login'
+);
+$router->map(
+    'POST',
+    '/login',
+    [
+        'method'=>'Auhtenticate',
+        'controller' => '\app\Controller\AuthentificationController']
+    ,
+    'Authenticate'
+);
+
+$router->map(
+    'GET',
+    '/logout',
+    [
+        'method'=>'logout',
+        'controller' => '\app\Controller\AuthentificationController']
+    ,
+    'logout'
+);
+$router->map(
+    'GET',
+    '/inscription',
+    [
+        'method'=>'inscription',
+        'controller' => '\app\Controller\AuthentificationController']
+    ,
+    'inscription'
+);
+$router->map(
+    'POST',
+    '/inscription',
+    [
+        'method'=>'createUser',
+        'controller' => '\app\Controller\AuthentificationController']
+    ,
+    'create-user'
+);
 $match = $router->match();
 
-
-if ($match) {
-    // $match n'est pas false, ça veut dire que la route exite !
-
-    //var_dump($match['target']);
-
-    $controllerName = $match['target']['controller'];
-    $methodName = $match['target']['action'];
-
-    //echo "On va instancier le controller " . $controllerName . '<br>';
-    //echo "et appeler la méthode " . $methodName;
-
-    //var_dump($match['params']);
-
-    // DISPATCH
-    // on instancie le bon contrôleur
-    $controller = new $controllerName();
-    // on appelle la méthode appropriée de ce contrôleur
-    //* Et on envoie les paramètres éventuels ($match['params']) à notre méthode de contrôleur !
-    $controller->$methodName($match['params']);
-
-} else {
-    dump($router);
-    // la route demandée par l'utilisateur n'existe pas, donc on lui affiche une erreur 404 !
-    $errorController = new app\Controller\ErrorController();
-    $errorController->error404();
-
-}
+$dispatch = new Dispatcher($match,'app\Controller\ErrorController::error404');
+$dispatch->dispatch();

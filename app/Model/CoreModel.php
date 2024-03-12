@@ -2,11 +2,23 @@
 
 namespace app\Model;
 
- class CoreModel
+ abstract class CoreModel
 {
 protected $id;
+     abstract public function insert();
+     abstract public function update();
 
-     /**
+
+     public function save()
+     {
+         if (empty($this->id)) {
+             return $this->insert();
+         } else {
+             return $this->update();
+         }
+     }
+
+/**
       * @return mixed
       */
      public function getId()
