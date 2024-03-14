@@ -31,7 +31,6 @@
                 // Stockage des informations dans la session
                 $_SESSION['userId'] = $user->getId();
                 $_SESSION['appUser'] = $user;
-
                 header('Location: /');
                 exit();
 
@@ -46,7 +45,6 @@
     public function createUser()
     {
 // Récupération des données du formulaire
-        dump($_POST);
 
         $email = htmlspecialchars(filter_input(INPUT_POST, 'email'));
         $password = htmlspecialchars(filter_input(INPUT_POST, 'password'));
@@ -57,7 +55,7 @@
         $role = 3;
 
         $hashedPassword = password_hash($password,PASSWORD_DEFAULT);
-        $formError = [];
+        $formErrors = [];
         // Vérification des champs vides
         if (empty($email) || empty($password)) {
             $formErrors[] = "Les champs email et mot de passe ne doivent pas être vides";
@@ -101,7 +99,7 @@
         $user->setRoles($role);
         $user->save();
         // Redirection
-       // header('Location: /');
+        header('Location: /');
         exit();
 
     }

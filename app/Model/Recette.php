@@ -21,6 +21,40 @@ class Recette extends CoreController
 
     protected $cuisson_id;
     protected $etape_id;
+    protected $categorie_id;
+    public $rateMoyen;
+
+    /**
+     * @return mixed
+     */
+    public function getRateMoyen()
+    {
+        return $this->rateMoyen;
+    }
+
+    /**
+     * @param mixed $rateMoyen
+     */
+    public function setRateMoyen($rateMoyen)
+    {
+        $this->rateMoyen = $rateMoyen;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategorieId()
+    {
+        return $this->categorie_id;
+    }
+
+    /**
+     * @param mixed $categorie_id
+     */
+    public function setCategorieId($categorie_id)
+    {
+        $this->categorie_id = $categorie_id;
+    }
 
     /**
      * @return mixed
@@ -225,6 +259,28 @@ class Recette extends CoreController
 
         return $result;
     }
+
+
+    public function findByCategory($category){
+        $pdo  = Database::getPDO();
+        $sql = "SELECT recette.* FROM recette
+            INNER JOIN categorie ON recette.categorie_id = categorie.id 
+            
+            WHERE categorie.id = :category";
+        $pdoStatement = $pdo->prepare($sql);
+        $pdoStatement->bindParam(':category', $category,PDO::PARAM_STR);
+        $pdoStatement->execute();
+
+        // Récupération du résultat de la requête sous forme de tableau associatif
+        $result = $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'app\Model\Recette');
+
+        // Vous pouvez maintenant manipuler les données récupérées de vos jointures
+        // par exemple : $result['nom_de_la_colonne']
+
+        return $result;
+    }
+
+
     public function insert()
     {
         // TODO: Implement insert() method.

@@ -24,16 +24,27 @@ $router->map(
     ,
     'RecetteController'
 );
+
 $router->map(
     'POST',
     '/recette/[i:id]',
     [
         'method'=>'commentaire',
-        'controller' => '\app\Controller\RecetteController']
+        'controller' => '\app\Controller\RecetteController',
+        'acl' => ['admin','user','catalog-manager']]
     ,
     'commentaire'
 );
 
+$router->map(
+    'GET',
+    '/list/[i:id]',
+    [
+        'method'=>'recetteBycategory',
+        'controller' => '\app\Controller\RecetteController']
+    ,
+    'ListController'
+);
 
 $router->map(
     'GET',
@@ -81,6 +92,11 @@ $router->map(
     ,
     'create-user'
 );
+
+
+
+
+
 $match = $router->match();
 
 $dispatch = new Dispatcher($match,'app\Controller\ErrorController::error404');

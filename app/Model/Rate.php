@@ -63,9 +63,9 @@ protected $recette_id;
 
     public  function findByRecette($id){
         $pdo = Database::getPDO();
-        $sql = "SELECT rate FROM rate INNER JOIN recette ON rate.recette_id = recette.id where recette.id =".$id;
+        $sql = "SELECT * FROM rate INNER JOIN recette ON rate.recette_id = recette.id where recette.id =".$id;
       $stmt = $pdo->query($sql);
-      $result = $stmt->fetchAll(PDO::FETCH_CLASS,'app\Model\Rate');
+      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
 

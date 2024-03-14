@@ -2,12 +2,12 @@ Commentary = {
     init: function (){
         const btn = document.querySelector("#btn");
         const btnText = document.querySelector("#btnText");
-btn.addEventListener('click',Commentary.handleClick)
+        btn.addEventListener('click',Commentary.handleClick)
 
     },
 
     handleClick:function (event){
-        event.preventDefault();
+
         const btn = document.querySelector("#btn");
         const btnText = document.querySelector("#btnText");
         const CommentValue = document.querySelector(".commentaire textarea")
@@ -18,9 +18,6 @@ btn.addEventListener('click',Commentary.handleClick)
         allComment.appendChild(ul)
         const li = document.createElement('li')
         li.innerText =CommentValue.value
-
         ul.appendChild(li)
-
-
     }
 }

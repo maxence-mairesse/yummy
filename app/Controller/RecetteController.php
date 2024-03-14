@@ -1,6 +1,8 @@
 <?php
 
 namespace app\Controller;
+use app\Model\Categorie;
+use app\Model\Commentary;
 use app\Model\duree;
 use app\Model\Rate;
 use app\Model\Recette;
@@ -13,8 +15,13 @@ class RecetteController extends CoreController
 
         $id = $param;
         $recette = new Recette();
+        $result = $recette->findById($id);
         $rate = new Rate();
         $rates = $rate->findByRecette($id);
+
+        $commentaryModel=new Commentary();
+        $commentary= $commentaryModel->findByRecette($id);
+        $dataToSend['commentary']= $commentary;
 
         if (empty($rates)){
             $rateMoyen = 0;
@@ -22,20 +29,19 @@ class RecetteController extends CoreController
         else{
             $somme = 0;
             foreach ($rates as $rate){
-                $convetRate = $rate->getRate();
+                $convetRate = $rate['rate'];
                 $somme = $somme + $convetRate;
             }
             $totalRate = sizeof($rates);
             $rateMoyen = $somme/$totalRate;
+            $result['rateMoyen'] =$rateMoyen;
 
         }
 
-        $result = $recette->findById($id);
         $result['preparation']= $this->setTime($result,'time','Preparation');
         $result['cuisson']= $this->setTime($result,'time_cuisson','Cuisson');
 
 
-        $dataToSend['rate']= $rateMoyen;
         $dataToSend['details']= $result;
         $this->show('details',$dataToSend);
 
@@ -48,19 +54,82 @@ class RecetteController extends CoreController
         $heure = $time->format('H');
         $minutes =$time->format('i');
 
-            if ($heure == 0){
-              return   ($minutes.' min');
-            }else if ($heure >0 && $minutes>0){
-               return  ($heure.'h'.$minutes.'min');
-            }else {
-              return ($heure.' h');
+        if ($heure == 0){
+            return   ($minutes.' min');
+        }else if ($heure >0 && $minutes>0){
+            return  ($heure.'h'.$minutes.'min');
+        }else {
+            return ($heure.' h');
+        }
+
+    }
+    public function commentaire($param)
+    {
+        $user_id= $_SESSION['userId'];
+        $recette_id = $param;
+        $description = ($_POST['commentaire']);
+        $commentary = new Commentary();
+
+
+            $commentary->setUserId($user_id);
+            $commentary->setRecetteId($recette_id);
+            $commentary->setCommentaire($description);
+            $commentary->save();
+
+
+            header('Location: /recette/'.$param);
+            exit();
+        }
+
+
+
+
+
+
+    public function recetteBycategory($param)
+    {
+
+        $recettesModel = new Recette();
+        $recettes = $recettesModel->findByCategory($param);
+
+        $CategorieModel = new Categorie();
+        $categorie = $CategorieModel->findById($param);
+
+
+        foreach ($recettes as $key=>$value){
+            $id= $value->getId();
+            $rate = new Rate();
+            $rates = $rate->findByRecette($id);
+
+
+            if (empty($rates)){
+                $rateMoyen = 0;
             }
+            else{
+                $somme = 0;
+                foreach ($rates as $rate){
+
+                    $convetRate = $rate['rate'];
+                    $somme = $somme + $convetRate;
+                }
+                $totalRate = sizeof($rates);
+                $rateMoyen = $somme/$totalRate;
+                $value->rateMoyen = $rateMoyen;
+
+            }
+            if($value->rateMoyen === null){
+                $value->rateMoyen = 0;
+            };
 
         }
-        public function commentaire()
-        {
-            dump($_POST);
-        }
+
+
+
+        $data['recette'] = $recettes;
+        $data['category'] = $categorie;
+
+        $this->show('list', $data);
+    }
 
 
 

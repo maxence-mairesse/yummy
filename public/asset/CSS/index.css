@@ -101,6 +101,9 @@ nav li a:hover{
     text-decoration: none;
     color: black;
 }
+.card{
+    text-align: center
+}
 #recettes-coups-de-coeur{
     margin: auto;
     width: 80%;
@@ -242,6 +245,7 @@ margin-top: 0.5em;
 
 hr{
     width: 50%;
+    margin: auto;
     margin-top: 2em;
     border: 2px solid;
     border-radius: 2px;
@@ -336,4 +340,33 @@ svg path{
     stroke-dashoffset: 0;
     transition: 1s;
     transition-delay: 1s;
+}
+
+.list h2{
+    margin-top: 1em;
+    text-align: center;
+    font-size: 3em;
+}
+
+.block-commentaire{
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background: #e4e4e4;
+    color: #ff4000;
+    width: 50%;
+    margin: 1em auto;
+    padding: 1em;
+    border-radius: 10px;
+    min-height: 100px;
+    flex-wrap: wrap;
+}
+.block-commentaire h4{
+    display: block;
+    text-decoration: underline;
+}
+
+
+.block-commentaire p{
+    margin-left: 1em;
+    color: black;
 }

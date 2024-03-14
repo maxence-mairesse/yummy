@@ -21,14 +21,11 @@
         <nav class="hidden" >
             <h2>Recettes par catégorie </h2>
             <ul>
+                <?php foreach ($viewData['categorie'] as $value):  ?>
 
-                <li><a href="facebook.com">Apéritifs</a> </li>
-                <li><a href="#">Entrées </a> </li>
-                <li><a href="#">Plats </a> </li>
-                <li><a href="#">Desserts </a> </li>
-                <li><a href="#">Boissons </a> </li>
-                <li><a href="#">Petit-déj </a> </li>
+                <li><a href="/list/<?=$value['id']?>"><?= $value['name']?></a> </li>
 
+<?php endforeach; ?>
             </ul>
         </nav>
     </div>

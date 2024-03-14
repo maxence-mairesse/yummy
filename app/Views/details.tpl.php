@@ -18,8 +18,7 @@
                     Note:
                     <span class="star">
                     <?php
-
-                    $rate = $viewData['rate'];
+                    $rate = $viewData['details']['rateMoyen'];
                     $int = floor($rate);
                     $dec = $rate - $int;
 
@@ -86,7 +85,14 @@
 
        ?>
         <div class="allComment">
-
+        <?php foreach ($viewData['commentary'] as $value): ?>
+            <div class="block-commentaire">
+                <h4><?=$value['pseudo']?> a dit:</h4>
+                <div>
+                    <p><?=$value['commentaire']?></p>
+                </div>
+            </div>
+            <?php endforeach;?>
         </div>
     </section>
 

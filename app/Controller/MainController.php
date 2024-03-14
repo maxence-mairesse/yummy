@@ -1,5 +1,6 @@
 <?php
 namespace app\Controller;
+use app\Model\Categorie;
 use app\Model\Ingedient;
 use app\Model\Rate;
 

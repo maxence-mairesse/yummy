@@ -1,5 +1,5 @@
 <main>
-    <form  method="POST">
+    <form  method="POST" id="loginForm">
         <label for="email">Email</label>
         <input type="text" id="email" name="email" placeholder="Email">
 

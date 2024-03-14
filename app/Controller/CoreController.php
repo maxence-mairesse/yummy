@@ -2,6 +2,7 @@
 
 namespace app\Controller;
 
+use app\Model\Categorie;
 use app\Model\Rate;
 use app\Model\Recette;
 use app\Model\Ingedient;
@@ -57,24 +58,20 @@ class CoreController
         // c'est pas génial, mais pour l'instant on sait pas faire mieux :/
         global $router;
 
-        //dump($viewData);
 
-        //var_dump(__DIR__);
-        // on se servira de ce $absoluteURL pour nos assets dans les fichiers de vue
-        // $absoluteURL = $_SERVER['BASE_URI'];
+        $categoyrModel = new Categorie();
+        $categories = $categoyrModel->findAll();
+        $viewData['categorie']= $categories;
 
-        // on a besoin de la liste des catégories sur l'ensemble des routes de notre application, pour générer la navigation
-        // on va les récupérer ici, vu que la méthode show() est utilisée sur l'ensemble des routes !
-        // 1. on instancie le modèle Category
+
         $RecetteModel = new Recette();
-        // 2. on utilise la méthode findAll() de ce modèle, pour récupérer tous les enregistrements
         $Recette = $RecetteModel->findAll();
-
 
         foreach ($Recette as $key=>$value){
             $id=$value->id;
             $rate = new Rate();
             $rates = $rate->findByRecette($id);
+
 
             if (empty($rates)){
                 $rateMoyen = 0;
@@ -82,14 +79,18 @@ class CoreController
             else{
                 $somme = 0;
                 foreach ($rates as $rate){
-                    $convetRate = $rate->getRate();
+
+                    $convetRate = $rate['rate'];
                     $somme = $somme + $convetRate;
                 }
                 $totalRate = sizeof($rates);
                 $rateMoyen = $somme/$totalRate;
+                $value->rateMoyen = $rateMoyen;
 
-                $viewData[$id]=$rateMoyen;
             }
+            if($value->rateMoyen === null){
+                $value->rateMoyen = 0;
+            };
 
         }
 
@@ -113,7 +114,7 @@ class CoreController
 
             // Est-ce que le rôle de l'utilisateur se trouve dans la liste des rôles autorisés ?
             // => est-ce que la $user->getRole() est contenu dans le tableau $roles ?
-            if (in_array($appUser->getRole(), $roles)) {
+            if (in_array($appUser->getRoles(), $roles)) {
                 // Utilisateur est autorisé !
                 return true;
             } else {
