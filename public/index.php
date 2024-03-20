@@ -8,7 +8,7 @@ $router = new AltoRouter();
 
 $router->map(
     'GET',
-    '/',
+    'https://yummy.maxence-mairesse.fr/',
     [
     'method'=>'home',
     'controller' => '\app\Controller\MainController']
