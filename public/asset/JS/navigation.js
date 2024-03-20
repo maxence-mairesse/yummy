@@ -6,7 +6,6 @@ let navigation = {
         nav.style.opacity = 0
         overlay.style.opacity = 0
 
-        console.log('navigation module test');
 
         const button = document.querySelector('.button-nav');
         button.addEventListener('click',navigation.HandleClickMenu);
