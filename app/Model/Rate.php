@@ -70,8 +70,25 @@ protected $recette_id;
     }
 
     public function insert()
-    {
-        // TODO: Implement insert() method.
+    {  $pdo = Database::getPDO();
+        $sql = "INSERT INTO rate (rate, user_id, recette_id) VALUES (:rate, :user_id,:recette_id)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(
+            [
+            'rate'=>$this->rate,
+            'user_id'=>$this->user_id,
+            'recette_id' => $this->recette_id
+        ]);
+        if ($stmt->rowCount() > 0) {
+            // On récupère l'id généré automatiquement dans la base de données
+            // et on met à jour la propriété id
+            $this->id = $pdo->lastInsertId();
+
+            return true;
+        }
+
+        return false;
+
     }
 
     public function update()

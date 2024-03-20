@@ -93,6 +93,24 @@ $router->map(
     'create-user'
 );
 
+$router->map(
+    'GET',
+    '/profil',
+    [
+        'method'=>'profil',
+        'controller' => '\app\Controller\AuthentificationController']
+    ,
+    'profil'
+);
+$router->map(
+    'POST',
+    '/profil',
+    [
+        'method'=>'updateProfil',
+        'controller' => '\app\Controller\AuthentificationController']
+    ,
+    'profil-update'
+);
 
 
 

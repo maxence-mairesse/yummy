@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="/asset/favicon/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="/asset/CSS/reset.css">
-    <link rel="stylesheet" href="/asset/CSS/index.css">
+    <link rel="stylesheet" href="/asset/CSS/style.css">
     <script src="https://kit.fontawesome.com/d16614f244.js" crossorigin="anonymous"></script>
     <title>Yummy</title>
 </head>
@@ -30,6 +30,6 @@
         </nav>
     </div>
     <h1><a href="/">Yummy <span>おいしい</span></a></h1>
-    <?= isset($_SESSION['appUser']) ? "<span  class='login name'>Bonjour ".$_SESSION['appUser']->getPseudo()."</span> <span><a class='login' href='/logout'> Deconnexion</a></span>
-" : "<a href='/login' class='login name'>connexion</a>" ?>
+    <?= isset($_SESSION['appUser']) ? "<span  class='login name'>Bonjour ".$_SESSION['appUser']->getPseudo()."</span> <span><a class='login' href='/logout'> Deconnexion</a></span><span><a href='/profil' class='login name'>Profil</a></span>
+" : "<a href='/login' class='login name'>connexion</a> " ?>
 </header>

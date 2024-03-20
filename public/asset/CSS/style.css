@@ -129,18 +129,24 @@ nav li a:hover{
     font-size: 2em;
     padding-top: 50px;
 }
-#ingedients-saison{
+#ingredients{
     margin: auto;
     width: 80%;
 
     text-align: center;
     background-color: white;
 }
-#ingedients-saison h2 {
+
+#ingredients.ingredients{
+    background:none;
+}
+#ingredients h2 {
 
     font-size: 2em;
     padding-top: 50px;
 }
+
+
 .cards{
     width: 80%;
     margin: 50px 0 0 150px;
@@ -148,6 +154,7 @@ nav li a:hover{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center
 
 }
 
@@ -171,14 +178,18 @@ nav li a:hover{
 }
 
 
-#ingedients-saison .cards {
+#ingredients .cards {
     margin: 0;
     width: 100%;
     flex-wrap: nowrap;
     justify-content: space-between;
 
 }
-#ingedients-saison .cards  .card {
+
+#ingredients .recette_ingredient{
+    justify-content: center ;
+}
+#ingredients .cards  .card {
     width: 180px;
     text-transform: uppercase;
     transition: .5s;
@@ -186,7 +197,7 @@ nav li a:hover{
 }
 
 
-#ingedients-saison .cards  .card .card-body {
+#ingredients .cards  .card .card-body {
 
     height: 50px;
     padding-top: 25px;
@@ -196,7 +207,7 @@ nav li a:hover{
     transition: .5s;
 }
 
-#ingedients-saison .cards  .card:hover {
+#ingredients .cards  .card:hover {
     width: 230px;
     transition: .5s;
 
@@ -213,7 +224,7 @@ nav li a:hover{
 .details section {
     margin-top: 2em;
 }
-.details section img {
+.details  .image img {
     margin-left: 10vw;
     width: 80%;
 }
@@ -369,4 +380,41 @@ svg path{
 .block-commentaire p{
     margin-left: 1em;
     color: black;
+}
+
+#profils form {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: auto;
+    margin-top: 25vh;
+}
+#profils form input {
+    width: 15vw;
+    height: 3vh;
+    margin-top: 1vh;
+}
+#profils form label {
+    display: inline-block;
+    width: 15vw;
+
+}
+#profils form button {
+    width: 10vw;
+    height: 3vh;
+    font-size: 1em;
+    margin: auto;
+    margin-top: 2vh;
+}
+.error{
+    width: 80%;
+    margin: auto;
+    margin-top: 1em;
+    background: #e56565;
+    height: 3em;
+    text-align: center;
+    color: white;
+    font-size: 2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }

@@ -1,14 +1,14 @@
 <?php
 
-    namespace app\Controller;
+namespace app\Controller;
 
-    use app\Model\user;
+use app\Model\user;
 
-    class AuthentificationController extends CoreController
-    {
+class AuthentificationController extends CoreController
+{
     public function login()
     {
-    $this->show('login');
+        $this->show('login');
     }
 
     public function Auhtenticate()
@@ -111,4 +111,78 @@
         header('Location: /');
         exit();
     }
+
+
+    public function profil()
+    {
+        $this->show('profil');
     }
+
+    public function updateProfil()
+    {
+        $user_id= $_SESSION['userId'];
+        $password = htmlspecialchars(filter_input(INPUT_POST, 'password'));
+        $email = htmlspecialchars(filter_input(INPUT_POST, 'email'));
+
+
+        $formErrors = [];
+
+        if ($password != ''){
+            $hashedPassword = password_hash($password,PASSWORD_DEFAULT);
+
+            if (strlen($password) < 8) {
+                $formErrors[] = "Le mot de passe doit contenir au-moins 8 caractères";
+            }
+            $regex = "/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,12}/";
+
+            // Est-ce que le mot de passe correspond au format demandé ?
+            if (! preg_match($regex, $password)) {
+                // Si le mot de passe ne correspond pas
+                $formErrors[] = "Le mot de passe doit contenir une majuscule, un caractère spécial et 8 caractères";
+            }
+
+        }else{
+            $hashedPassword = $_SESSION['appUser']->getPassword();}
+
+
+        if($email !=''){
+            if (filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
+                $formErrors[] = "L'email doit avoir le bon format";
+            }
+        }else{
+            $email = $_SESSION['appUser']->getEmail();
+        }
+
+        $user = new user();
+        $findUser = $user->findUserByEmail($email);
+
+
+            if (!empty($findUser)) {
+        if ($findUser->getEmail() !=  $_SESSION['appUser']->getEmail()) {
+                $formErrors[] = "L'email est déjà utilisé";
+            }
+        }
+
+
+        if (! empty($formErrors)) {
+            $this->show('profil', [
+                'errors' => $formErrors
+            ]);
+
+            // On arrête le script car il y a des erreurs et on continue pas par l'enregistrement
+            exit();
+        }
+
+
+        $user->setId($user_id);
+        $user->setEmail($email);
+        $user->setPassword($hashedPassword);
+        $_SESSION['appUser']->setEmail($email);
+        $_SESSION['appUser']->setPassword($hashedPassword);
+        $user->save();
+        header('Location: /');
+        exit();
+
+
+    }
+}

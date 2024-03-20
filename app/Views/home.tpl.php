@@ -50,132 +50,24 @@
         </div>
     </section>
 
-<!--    <section id="recettes-saison">-->
-<!--        <h2> Recettes de saison </h2>-->
-<!--        <div class="cards">-->
-<!--            <div class="card">-->
-<!--                <div class="card-head">-->
-<!--                    <img src="--><?php //= $absoluteURL ?><!--/asset/img/Apero.jpg" alt="image d'apero">-->
+<!--    <section id="ingredients" >-->
+<!--        <h2> Ingredients de saison </h2>-->
+<!--        <div class="cards ">-->
+<!--            --><?php // foreach($viewData['ingredient'] as $ingredient):?>
+<!---->
+<!--                <div class="card">-->
+<!--                    <div class="card-head">-->
+<!--                        <img src="--><?php //= $ingredient->getPicture()?><!-- alt="--><?php //= $ingredient->getName()?><!--">-->
+<!--                    </div>-->
+<!--                    <div class="card-body">-->
+<!--                        <h3> --><?php //= $ingredient->getName()?><!--</h3>-->
+<!--                    </div>-->
+<!---->
 <!--                </div>-->
-<!--                <div class="card-body">-->
-<!--                    <h3> Aperol Spritz: cocktail italien pétillant</h3>-->
-<!--                </div>-->
-<!--                <div class="card-footer">-->
-<!--                    <i class="fa-solid fa-star"></i>-->
-<!--                    <i class="fa-solid fa-star"></i>-->
-<!--                    <i class="fa-solid fa-star"></i>-->
-<!--                    <i class="fa-solid fa-star"></i>-->
-<!--                    <i class="fa-solid fa-star"></i>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="card">-->
-<!--                <div class="card-head">-->
-<!--                    <img src="--><?php //= $absoluteURL ?><!--/asset/img/Apero.jpg" alt="image d'apero">-->
-<!--                </div>-->
-<!--                <div class="card-body">-->
-<!--                    <h3> Aperol Spritz: cocktail italien pétillant</h3>-->
-<!--                </div>-->
-<!--                <div class="card-footer">-->
-<!--                    <i class="fa-solid fa-star"></i>-->
-<!--                    <i class="fa-solid fa-star"></i>-->
-<!--                    <i class="fa-solid fa-star"></i>-->
-<!--                    <i class="fa-solid fa-star"></i>-->
-<!--                    <i class="fa-solid fa-star"></i>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="card">-->
-<!--                <div class="card-head">-->
-<!--                    <img src="--><?php //= $absoluteURL ?><!--/asset/img/Apero.jpg" alt="image d'apero">-->
-<!--                </div>-->
-<!--                <div class="card-body">-->
-<!--                    <h3> Aperol Spritz: cocktail italien pétillant</h3>-->
-<!--                </div>-->
-<!--                <div class="card-footer">-->
-<!--                    <i class="fa-solid fa-star"></i>-->
-<!--                    <i class="fa-solid fa-star"></i>-->
-<!--                    <i class="fa-solid fa-star"></i>-->
-<!--                    <i class="fa-solid fa-star"></i>-->
-<!--                    <i class="fa-solid fa-star"></i>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="card">-->
-<!--                <div class="card-head">-->
-<!--                    <img src="--><?php //= $absoluteURL ?><!--/asset/img/Apero.jpg" alt="image d'apero">-->
-<!--                </div>-->
-<!--                <div class="card-body">-->
-<!--                    <h3> Aperol Spritz: cocktail italien pétillant</h3>-->
-<!--                </div>-->
-<!--                <div class="card-footer">-->
-<!--                    <i class="fa-solid fa-star"></i>-->
-<!--                    <i class="fa-solid fa-star"></i>-->
-<!--                    <i class="fa-solid fa-star"></i>-->
-<!--                    <i class="fa-solid fa-star"></i>-->
-<!--                    <i class="fa-solid fa-star"></i>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="card">-->
-<!--                <div class="card-head">-->
-<!--                    <img src="--><?php //= $absoluteURL ?><!--/asset/img/Apero.jpg" alt="image d'apero">-->
-<!--                </div>-->
-<!--                <div class="card-body">-->
-<!--                    <h3> Aperol Spritz: cocktail italien pétillant</h3>-->
-<!--                </div>-->
-<!--                <div class="card-footer">-->
-<!--                    <i class="fa-solid fa-star"></i>-->
-<!--                    <i class="fa-solid fa-star"></i>-->
-<!--                    <i class="fa-solid fa-star"></i>-->
-<!--                    <i class="fa-solid fa-star"></i>-->
-<!--                    <i class="fa-solid fa-star"></i>-->
-<!--                </div>-->
-<!--            </div> <div class="card">-->
-<!--            <div class="card-head">-->
-<!--                <img src="--><?php //= $absoluteURL ?><!--/asset/img/Apero.jpg" alt="image d'apero">-->
-<!--            </div>-->
-<!--            <div class="card-body">-->
-<!--                <h3> Aperol Spritz: cocktail italien pétillant</h3>-->
-<!--            </div>-->
-<!--            <div class="card-footer">-->
-<!--                <i class="fa-solid fa-star"></i>-->
-<!--                <i class="fa-solid fa-star"></i>-->
-<!--                <i class="fa-solid fa-star"></i>-->
-<!--                <i class="fa-solid fa-star"></i>-->
-<!--                <i class="fa-solid fa-star"></i>-->
-<!--            </div>-->
-<!--        </div> <div class="card">-->
-<!--            <div class="card-head">-->
-<!--                <img src="--><?php //= $absoluteURL ?><!--/asset/img/Apero.jpg" alt="image d'apero">-->
-<!--            </div>-->
-<!--            <div class="card-body">-->
-<!--                <h3> Aperol Spritz: cocktail italien pétillant</h3>-->
-<!--            </div>-->
-<!--            <div class="card-footer">-->
-<!--                <i class="fa-solid fa-star"></i>-->
-<!--                <i class="fa-solid fa-star"></i>-->
-<!--                <i class="fa-solid fa-star"></i>-->
-<!--                <i class="fa-solid fa-star"></i>-->
-<!--                <i class="fa-solid fa-star"></i>-->
-<!--            </div>-->
+<!---->
+<!--            --><?php //endforeach; ?>
 <!--        </div>-->
-<!--        </div>-->
-<!--    </section> -->
-    <section id="ingedients-saison">
-        <h2> Ingredients de saison </h2>
-        <div class="cards">
-            <?php  foreach($viewData['ingredient'] as $ingredient):?>
-
-                <div class="card">
-                    <div class="card-head">
-                        <img src="<?= $ingredient->getPicture()?> alt="<?= $ingredient->getName()?>">
-                    </div>
-                    <div class="card-body">
-                        <h3> <?= $ingredient->getName()?></h3>
-                    </div>
-
-                </div>
-
-            <?php endforeach; ?>
-        </div>
-    </section>
+<!--    </section>-->
 
 
 </main>

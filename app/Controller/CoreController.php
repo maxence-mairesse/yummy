@@ -57,7 +57,7 @@ class CoreController
         // on utilise `global` pour accéder à la méthode `generate()` d'AltoRouter
         // c'est pas génial, mais pour l'instant on sait pas faire mieux :/
         global $router;
-
+        $viewData['errors']=[];
 
         $categoyrModel = new Categorie();
         $categories = $categoyrModel->findAll();

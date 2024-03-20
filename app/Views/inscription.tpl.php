@@ -1,7 +1,9 @@
 <h2>Ajouter un utilisateur</h2>
 
 <!-- Si la variable $errors existe on affiche les erreurs -->
-<?php if (isset($errors)): ?>
+<?php
+
+if (isset($errors)): ?>
     <div >
         <ul>
             <?php foreach ($errors as $error) : ?>

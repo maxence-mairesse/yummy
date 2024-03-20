@@ -112,7 +112,7 @@ class user extends CoreModel
     {
         $pdo = Database::getPDO();
         $sql = "SELECT * FROM user WHERE email =:email";
-       $stmt= $pdo->prepare($sql);
+        $stmt= $pdo->prepare($sql);
         $stmt->execute([
             'email'=>$email
         ]);
@@ -150,6 +150,14 @@ class user extends CoreModel
 
     public function update()
     {
-       dump('coucou');
+        $pdo = Database::getPDO();
+        $sql = "UPDATE user SET email=:email, password=:password where id=:id";
+        $stmt=$pdo->prepare($sql);
+        $stmt->execute([
+            'id'=>$this->getId(),
+                'email'=>$this->getEmail(),
+                'password'=>$this->getPassword()
+            ]
+        );
     }
 }

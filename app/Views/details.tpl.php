@@ -63,6 +63,26 @@
 
         </ul>
     </div>
+    <section id="ingredients" class="ingredients">
+        <h2> Ingredients de la recette </h2>
+        <div class="cards recette_ingredient">
+            <?php
+
+            foreach($viewData['ingredient'] as $ingredient):?>
+
+                <div class="card">
+                    <div class="card-head">
+                        <img src="<?= $ingredient['picture']?> alt="<?= $ingredient['name']?>">
+                    </div>
+                    <div class="card-body">
+                        <h3> <?=$ingredient['name'] ?></h3>
+                    </div>
+
+                </div>
+
+            <?php endforeach; ?>
+        </div>
+    </section>
 
     <section>
         <h2>Commentaires</h2>
@@ -71,6 +91,15 @@
             "<form class='commentaire' method='POST'>
 <label for='commentaire'>Votre commentaire </label>
 <textarea id='commentaire' name='commentaire'></textarea>
+<label for='rate' >Note</label>
+<select name='rate' id='rate'>
+<option value=''></option>
+<option value='1'>1</option>
+<option value='2'>2</option>
+<option value='3'>3</option>
+<option value='4'>4</option>
+<option value='5'>5</option>
+</select>
  <div class='container'>
         <button id='btn'>
             <p id='btnText'>Submit</p>

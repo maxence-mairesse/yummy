@@ -54,6 +54,18 @@ public function findAllIngredient()
         return $stm->fetchAll(PDO::FETCH_CLASS, "\app\Model\Ingedient");
     }
 
+    public function findByRecette($id)
+    {
+        $pdo = Database::getPDO();
+        $sql = "SELECT * FROM recette_ingredient INNER JOIN ingredient ON ingredient.id = recette_ingredient.ingredient_id where recette_ingredient.recette_id = :id ";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
+            'id'=>$id
+        ]);
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function insert()
     {
         // TODO: Implement insert() method.
