@@ -96,9 +96,9 @@ class CoreController
 
 
 
-        require_once __DIR__ . '/../views/header.tpl.php';
-        require_once __DIR__ . '/../views/' . $viewName . '.tpl.php';
-        require_once __DIR__ . '/../views/footer.tpl.php';
+        require_once __DIR__ . '/../Views/header.tpl.php';
+        require_once __DIR__ . '/../Views/' . $viewName . '.tpl.php';
+        require_once __DIR__ . '/../Views/footer.tpl.php';
 
     }
     protected function checkAuthorization($roles = [])
