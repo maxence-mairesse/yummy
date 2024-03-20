@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 session_start();
 $router = new AltoRouter();
 // $router->setBasePath($_SERVER['BASE_URI']);
@@ -8,7 +8,7 @@ $router = new AltoRouter();
 
 $router->map(
     'GET',
-    'https://yummy.maxence-mairesse.fr/',
+    '/',
     [
     'method'=>'home',
     'controller' => '\app\Controller\MainController']
