@@ -5,6 +5,35 @@ SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
+DROP TABLE IF EXISTS `categorie`;
+CREATE TABLE `categorie` (
+                             `id` int(11) NOT NULL AUTO_INCREMENT,
+                             `name` varchar(255) NOT NULL,
+                             PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `categorie` (`id`, `name`) VALUES
+                                           (1,	'Dessert'),
+                                           (2,	'Petit déjeuner'),
+                                           (3,	'Entrée'),
+                                           (4,	'Plats'),
+                                           (5,	'Boisson'),
+                                           (6,	'Apéritif');
+
+DROP TABLE IF EXISTS `commentary`;
+CREATE TABLE `commentary` (
+                              `id` int(11) NOT NULL AUTO_INCREMENT,
+                              `user_id` int(11) NOT NULL,
+                              `recette_id` int(11) NOT NULL,
+                              `commentaire` longtext NOT NULL,
+                              PRIMARY KEY (`id`),
+                              KEY `user_id` (`user_id`),
+                              KEY `recette_id` (`recette_id`),
+                              CONSTRAINT `commentary_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+                              CONSTRAINT `commentary_ibfk_2` FOREIGN KEY (`recette_id`) REFERENCES `recette` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 DROP TABLE IF EXISTS `cuisson`;
 CREATE TABLE `cuisson` (
                            `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -62,7 +91,8 @@ CREATE TABLE `etape` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `etape` (`id`, `etape1`, `etape2`, `etape3`, `etape4`, `etape5`, `etape6`, `etape7`, `etape8`) VALUES
-    (1,	'Dans un saladier, mélangez la farine, le sel et le sucre en poudre. Creusez ensuite un puits pour y casser les œufs. Mélangez en effectuant des cercles du centre vers l’extérieur. Versez ensuite le lait petit à petit, puis ajoutez le sucre vanillé. Laissez reposer 30 min.\r\n\r\n',	'Avec un coton, badigeonnez d’huile le fond de votre crêpière et faites-la chauffer à feu vif. Une fois bien chaude, versez-y une louche de pâte et laissez cuire 3 min de chaque côté. Procédez ainsi jusqu’à épuisement de la pâte.\r\n\r\n',	'Empilez les crêpes sur une assiette, en les recouvrant éventuellement d’un torchon propre pour les conserver au chaud !\r\n\r\n',	NULL,	NULL,	NULL,	NULL,	NULL);
+                                                                                                               (1,	'Dans un saladier, mélangez la farine, le sel et le sucre en poudre. Creusez ensuite un puits pour y casser les œufs. Mélangez en effectuant des cercles du centre vers l’extérieur. Versez ensuite le lait petit à petit, puis ajoutez le sucre vanillé. Laissez reposer 30 min.\r\n\r\n',	'Avec un coton, badigeonnez d’huile le fond de votre crêpière et faites-la chauffer à feu vif. Une fois bien chaude, versez-y une louche de pâte et laissez cuire 3 min de chaque côté. Procédez ainsi jusqu’à épuisement de la pâte.\r\n\r\n',	'Empilez les crêpes sur une assiette, en les recouvrant éventuellement d’un torchon propre pour les conserver au chaud !\r\n\r\n',	NULL,	NULL,	NULL,	NULL,	NULL),
+                                                                                                               (2,	'Découper le poulet en morceaux, nettoyer les moules, émincer le chorizo et les poivrons, peler et concasser les tomates, hacher les oignons et l\'ail.\r\n\r\n',	'Mettre l\'huile dans le plat et faire dorer les morceaux de poulet. Ajouter les calamars, les oignons tout en remuant puis mettre les tomates, les poivrons, l\'ail, le safran, le sel et le poivre. Laisser cuire 5 minutes en remuant avant d\'incorporer le riz, le chorizo et le bouillon.\r\n\r\n',	'Y plonger les crevettes et les moules, porter à ébullition puis laisser cuire environ 30-35 minutes.\r\n\r\n',	NULL,	NULL,	NULL,	NULL,	NULL);
 
 DROP TABLE IF EXISTS `ingredient`;
 CREATE TABLE `ingredient` (
@@ -98,13 +128,6 @@ CREATE TABLE `rate` (
                         CONSTRAINT `rate_ibfk_2` FOREIGN KEY (`recette_id`) REFERENCES `recette` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `rate` (`id`, `rate`, `user_id`, `recette_id`) VALUES
-                                                               (1,	4,	1,	1),
-                                                               (2,	2,	1,	1),
-                                                               (3,	5,	1,	1),
-                                                               (4,	4,	1,	2),
-                                                               (5,	3,	1,	2),
-                                                               (6,	0,	1,	2);
 
 DROP TABLE IF EXISTS `recette`;
 CREATE TABLE `recette` (
@@ -119,20 +142,44 @@ CREATE TABLE `recette` (
                            `duree_id` int(11) NOT NULL,
                            `cuisson_id` int(11) NOT NULL,
                            `etape_id` int(11) DEFAULT NULL,
+                           `categorie_id` int(11) DEFAULT NULL,
+                           `rateMoyen` int(11) DEFAULT NULL,
                            PRIMARY KEY (`id`),
                            KEY `ingredient` (`ingredient`),
                            KEY `duree_id` (`duree_id`),
                            KEY `cuisson_id` (`cuisson_id`),
                            KEY `etape_id` (`etape_id`),
+                           KEY `categorie_id` (`categorie_id`),
+                           KEY `rate_id` (`rateMoyen`),
                            CONSTRAINT `recette_ibfk_1` FOREIGN KEY (`ingredient`) REFERENCES `ingredient` (`id`),
                            CONSTRAINT `recette_ibfk_2` FOREIGN KEY (`duree_id`) REFERENCES `duree` (`id`),
                            CONSTRAINT `recette_ibfk_4` FOREIGN KEY (`cuisson_id`) REFERENCES `cuisson` (`id`),
-                           CONSTRAINT `recette_ibfk_5` FOREIGN KEY (`etape_id`) REFERENCES `etape` (`id`)
+                           CONSTRAINT `recette_ibfk_5` FOREIGN KEY (`etape_id`) REFERENCES `etape` (`id`),
+                           CONSTRAINT `recette_ibfk_6` FOREIGN KEY (`categorie_id`) REFERENCES `categorie` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `recette` (`id`, `name`, `description`, `picture`, `ordre_saison`, `preparation`, `cuisson`, `ingredient`, `duree_id`, `cuisson_id`, `etape_id`) VALUES
-                                                                                                                                                                 (1,	'Mousse au chocolat',	'Mousse au chocolat fais maison ',	'https://img.cuisineaz.com/660x660/2022/07/29/i184912-shutterstock-1033452436-min.jpeg',	NULL,	'10 min',	'05 min',	NULL,	2,	5,	1),
-                                                                                                                                                                 (2,	'Crêpes',	'On prend autant de plaisir à les faire sauter qu’à les manger. Avec ou sans bolée de cidre, la crêpe se plie toujours en 4 pour nous régaler ! Si elle se savoure de façon incontournable à la chandeleur, elle s’invite aussi lors de toutes les occasions festives. Du goûter à l’anniversaire en passant par la fameuse « crêpes party », personne ne lui résiste. Pour une recette de pâte à crêpes facile garantie zéro grumeau, c’est par ici !',	'https://img.cuisineaz.com/660x660/2015/01/29/i113699-photo-de-crepe-facile.jpeg',	NULL,	'30 min',	'2 min',	NULL,	3,	1,	1);
+INSERT INTO `recette` (`id`, `name`, `description`, `picture`, `ordre_saison`, `preparation`, `cuisson`, `ingredient`, `duree_id`, `cuisson_id`, `etape_id`, `categorie_id`, `rateMoyen`) VALUES
+                                                                                                                                                                                              (1,	'Mousse au chocolat',	'Mousse au chocolat fais maison ',	'https://img.cuisineaz.com/660x660/2022/07/29/i184912-shutterstock-1033452436-min.jpeg',	NULL,	'10 min',	'05 min',	NULL,	2,	5,	1,	1,	NULL),
+                                                                                                                                                                                              (2,	'Crêpes',	'On prend autant de plaisir à les faire sauter qu’à les manger. Avec ou sans bolée de cidre, la crêpe se plie toujours en 4 pour nous régaler ! Si elle se savoure de façon incontournable à la chandeleur, elle s’invite aussi lors de toutes les occasions festives. Du goûter à l’anniversaire en passant par la fameuse « crêpes party », personne ne lui résiste. Pour une recette de pâte à crêpes facile garantie zéro grumeau, c’est par ici !',	'https://img.cuisineaz.com/660x660/2015/01/29/i113699-photo-de-crepe-facile.jpeg',	NULL,	'30 min',	'2 min',	NULL,	3,	1,	1,	1,	NULL),
+                                                                                                                                                                                              (3,	'Paella',	'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip',	'https://assets.afcdn.com/recipe/20190827/96838_w600.jpg',	NULL,	NULL,	NULL,	NULL,	5,	5,	2,	4,	NULL);
+
+DROP TABLE IF EXISTS `recette_ingredient`;
+CREATE TABLE `recette_ingredient` (
+                                      `id` int(11) NOT NULL AUTO_INCREMENT,
+                                      `recette_id` int(11) NOT NULL,
+                                      `ingredient_id` int(11) NOT NULL,
+                                      PRIMARY KEY (`id`),
+                                      KEY `recette_id` (`recette_id`),
+                                      KEY `ingredient_id` (`ingredient_id`),
+                                      CONSTRAINT `recette_ingredient_ibfk_1` FOREIGN KEY (`recette_id`) REFERENCES `recette` (`id`),
+                                      CONSTRAINT `recette_ingredient_ibfk_2` FOREIGN KEY (`ingredient_id`) REFERENCES `ingredient` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `recette_ingredient` (`id`, `recette_id`, `ingredient_id`) VALUES
+                                                                           (1,	1,	1),
+                                                                           (2,	1,	2),
+                                                                           (3,	1,	11),
+                                                                           (4,	1,	4);
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
@@ -142,10 +189,12 @@ CREATE TABLE `user` (
                         `lastName` varchar(255) NOT NULL,
                         `password` varchar(255) NOT NULL,
                         `email` varchar(255) NOT NULL,
+                        `roles` enum('admin','catalog-manager','user') NOT NULL,
                         PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `user` (`id`, `pseudo`, `firstName`, `lastName`, `password`, `email`) VALUES
-    (1,	'admin',	'Maxence',	'Mairesse',	'admin',	'admin@admin.fr');
+INSERT INTO `user` (`id`, `pseudo`, `firstName`, `lastName`, `password`, `email`, `roles`) VALUES
+                                                                                               (1,	'admin',	'Maxence',	'Mairesse',	'$2y$10$j9xXurcDWeHlxHEZ6UO1Ke0m/DH2bTvKfz9iTTj./9KBdcHdO0hH6',	'test2@test.fr',	'admin'),
+                                                                                               (3,	'Moscato',	'Maxence',	'Mairesse',	'$2y$10$biDW3KgcTixA51ZNC266GeBsJSORAzNzt/74AqR08RdJfpHNsE2Py',	'mairessemax@live.fr',	'user');
 
--- 2024-03-09 15:02:28
+-- 2024-03-20 20:34:35

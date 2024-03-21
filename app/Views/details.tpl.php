@@ -42,7 +42,7 @@
 
         </section>
     </div>
-    <hr>
+
     <div class="prepa">
         <h2>Étapes de préparation</h2>
         <?php
@@ -84,33 +84,40 @@
         </div>
     </section>
 
-    <section>
+    <section class="commentaires">
         <h2>Commentaires</h2>
         <?=
         isset($_SESSION['userId']) ?
             "<form class='commentaire' method='POST'>
-<label for='commentaire'>Votre commentaire </label>
-<textarea id='commentaire' name='commentaire'></textarea>
+
+    <div>
+        <label for='commentaire'>Votre commentaire </label>
+        <textarea id='commentaire' name='commentaire'></textarea>
+    </div>
+<div>
 <label for='rate' >Note</label>
 <select name='rate' id='rate'>
-<option value=''></option>
+<option value='' selected>Choisir une note</option>
 <option value='1'>1</option>
 <option value='2'>2</option>
 <option value='3'>3</option>
 <option value='4'>4</option>
 <option value='5'>5</option>
 </select>
- <div class='container'>
+</div>
+
+ <div class=''>
         <button id='btn'>
             <p id='btnText'>Submit</p>
-            <div class='check-box'>
-                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'>
-                    <path fill='transparent' d='M14.1 27.2l7.1 7.2 16.7-16.8' />
-                </svg>
-            </div>
         </button>
     </div>
-</form>":""
+</form>
+
+
+
+
+
+":""
 
        ?>
         <div class="allComment">

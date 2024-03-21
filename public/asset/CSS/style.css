@@ -1,102 +1,77 @@
+
+.arima {
+    font-family: "Arima", system-ui;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
 body{
-    background-color: rgba(128, 128, 128, 0.21);
+    background-image: url("../img/background.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+
 }
-header{
-    background-color: #cc3800;
+
+/*CSS Page Home*/
+main {
     text-align: center;
-    font-size: 3em;
-    color: white;
-    padding: 0.5em;
-    display: flex;
-    align-items: center;
-}
-header h1{
-    width: fit-content;
-    margin-left:33%;
-}
-.name{
-    margin-left: 20%;
-    margin-right: 1em;
-}
-header h1 span {
-    font-size: 0.7em;
-}
-header h1 a{
-   text-decoration: none;
-    color: white;
-}
-header .login{
-    color: white;
-    font-size: 0.3em;
-    text-decoration: none;
-
 }
 
-.hidden {
-    display: none;
-    transition: ease-in .3s;
-
-}
-#overlay{
-    position: fixed;
-    top: 95px;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Couleur de fond semi-transparente */
-    transition: ease-in .3s;
-    display: none; /* Masquer par défaut */
-}
-.button-nav{
-    padding-left: 1em;
-    padding-right: 1em ;
-    margin-right: 1em;
-    text-align: center;
-    font-size: 0.8em;
-    border-right: solid 1px white ;
-}
-#button-navigation:hover{
-    cursor: pointer;
-}
-nav{
-    position: absolute;
-    background-color: white;
-    width: 100%;
-    left: 0;
-    top: 95px;
-    text-align: left;
-    color: #ff5513;
-    padding-left: 1em;
-    opacity: 1;
-    transition: ease-in .3s;
-}
-nav h2{margin: 1em 0 0.8em 0;
-    font-size: 0.5em;
-}
-nav li {
-    height: 1em;
-    margin: 0.2em
-}
-nav li:last-child {
-    margin-bottom: 1em;
-}
-nav li:first-child {
+main h2 {
+    color: #ffffff;
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
     margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 1.4em;
+    font-family: "Arima", system-ui;
 }
-nav li a{
+.fa-heart{
+    color: red;
+}
+main .cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-    display: block;
-    height: 100%;
-    color: black;
-    font-size: 0.3em;
-    text-decoration: none;
-    transition: .5s;
+
 }
-nav li a:hover{
-    color: #ff5513;
-    transition: .5s;
+
+main .cards .card{
+    width: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px auto auto;
+    box-shadow: rgba(0, 0, 0, 0.67) 0px 3px 8px;
+
+
 }
-/* CSS Main */
+.card-head img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;}
+.card-body{
+    padding-top: 25px;
+    height: 50px;
+    color: #0B3948;
+    background-color: #FAF6F6;
+    border-right: 1px solid #0B3948;
+    border-left: 1px solid #0B3948;
+
+}
+
+.card-footer{
+
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: #FAF6F6;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: #5F464B;
+
+}
+
 .cards a{
     text-decoration: none;
     color: black;
@@ -104,317 +79,291 @@ nav li a:hover{
 .card{
     text-align: center
 }
-#recettes-coups-de-coeur{
+
+/*Page details*/
+.details{
+    color: #000000;
+    font-family: "Arima", system-ui;
+}
+    /* Block présentation*/
+.details .presentation {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 80%;
+    padding: 2em;
     margin: auto;
-    width: 80%;
-    margin-top: 20vh;
-    text-align: center;
     background-color: white;
-}
-#recettes-coups-de-coeur h2 {
-
-    font-size: 2em;
-    padding-top: 50px;
-}
-
-#recettes-saison{
-    margin: auto;
-    width: 80%;
-
-    text-align: center;
-    background-color: white;
-}
-#recettes-saison h2 {
-
-    font-size: 2em;
-    padding-top: 50px;
-}
-#ingredients{
-    margin: auto;
-    width: 80%;
-
-    text-align: center;
-    background-color: white;
-}
-
-#ingredients.ingredients{
-    background:none;
-}
-#ingredients h2 {
-
-    font-size: 2em;
-    padding-top: 50px;
-}
-
-
-.cards{
-    width: 80%;
-    margin: 50px 0 0 150px;
-    padding-bottom: 50px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center
-
-}
-
-.card{
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 10px;
-    margin: 1em;
-    width:200px;
-    overflow: hidden;
-    transition: .5s;
 }
-.card-head img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    object-position: center;
-}
-.card-footer{
-    margin: 50px 0 1em 0;
-    color: #ff5513;
-}
-
-
-#ingredients .cards {
-    margin: 0;
-    width: 100%;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-
-}
-
-#ingredients .recette_ingredient{
-    justify-content: center ;
-}
-#ingredients .cards  .card {
-    width: 180px;
-    text-transform: uppercase;
-    transition: .5s;
-
-}
-
-
-#ingredients .cards  .card .card-body {
-
-    height: 50px;
-    padding-top: 25px;
-}
-.card:hover{
-    width: 230px;
-    transition: .5s;
-}
-
-#ingredients .cards  .card:hover {
-    width: 230px;
-    transition: .5s;
-
-}
-.details h2{
-    text-align: center;
-    font-size: 2em;
-    margin-top: 3em;
-}
-
-.presentation{
-    display: flex;
-}
-.details section {
-    margin-top: 2em;
-}
-.details  .image img {
-    margin-left: 10vw;
-    width: 80%;
-}
-.description{
-    width: 50%;
-    padding: 1em;
-}
-.description ul li:first-child{
-    margin-bottom: 0.5em;
-    width: 80%;
-
-}
-.prepa{
-    width: 60%;
-    margin: auto;
-    margin-bottom: 5em;
-}
-.prepa h3 {
-    font-size: 1.8em;
-    text-align: start;
-    font-weight: bold;
-    margin-top: 1em;
-    text-transform: uppercase;
-}
-.prepa p {
-margin-top: 0.5em;
-    width: 70%;
-}
-
-hr{
-    width: 50%;
-    margin: auto;
-    margin-top: 2em;
-    border: 2px solid;
-    border-radius: 2px;
-}
-.star{
-color: #ff5513}
-.commentaire{
-    text-align: center;
-    margin: 3em;
-}
-.commentaire textarea{
-    border: #ff5513 solid 3px ;
-    width: 30%;
-    height: 10%;
-}
-.commentaire label{
-    display: block;
-}
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-.container{
-    margin-top: 2em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-button{
-    width: 72px;
-    height: 20px;
-    border: none;
-    outline: none;
-    background: #2f2f2f;
-    color: #fff;
-    font-size: 11px;
-    border-radius: 40px;
-    text-align: center;
-    box-shadow: 0 6px 20px -5px rgba(0,0,0,0.4);
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-}
-
-.check-box{
-    width: 20px;
-    height: 20px;
-    border-radius: 40px;
-    box-shadow: 0 0 12px -2px rgba(0,0,0,0.5);
-    position: absolute;
-    top: 0;
-    right: -10px;
-    opacity: 0;
-}
-
-.check-box svg{
-    width: 10px;
-    margin: 5px;
-}
-
-svg path{
-    stroke-width: 3;
-    stroke: #fff;
-    stroke-dasharray: 34;
-    stroke-dashoffset: 34;
-    stroke-linecap: round;
-}
-
-.active{
-    background: #ff5513;
-    transition: 1s;
-}
-
-.active .check-box{
-    right: 0;
-    opacity: 1;
-    transition: 1s;
-}
-
-.active p{
-    margin-right: 13px;
-    transition: 1s;
-}
-
-.active svg path{
-    stroke-dashoffset: 0;
-    transition: 1s;
-    transition-delay: 1s;
-}
-
-.list h2{
-    margin-top: 1em;
-    text-align: center;
-    font-size: 3em;
-}
-
-.block-commentaire{
-    display: flex;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    background: #e4e4e4;
-    color: #ff4000;
-    width: 50%;
-    margin: 1em auto;
-    padding: 1em;
+.details .presentation .image img {
+    width: 40vw;
     border-radius: 10px;
-    min-height: 100px;
-    flex-wrap: wrap;
-}
-.block-commentaire h4{
-    display: block;
-    text-decoration: underline;
-}
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
-
-.block-commentaire p{
-    margin-left: 1em;
-    color: black;
 }
-
-#profils form {
-    display: flex;
-    flex-direction: column;
+.details .description ul {
     width: fit-content;
     margin: auto;
-    margin-top: 25vh;
 }
-#profils form input {
-    width: 15vw;
-    height: 3vh;
-    margin-top: 1vh;
+.details .description ul li {
+    text-align: left;
+    margin: 1em;
 }
-#profils form label {
-    display: inline-block;
-    width: 15vw;
-
+.details .description ul li .star {
+   color: #ff5513;
 }
-#profils form button {
-    width: 10vw;
-    height: 3vh;
-    font-size: 1em;
-    margin: auto;
-    margin-top: 2vh;
-}
-.error{
+    /* Block préparation */
+.details .prepa {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     width: 80%;
-    margin: auto;
-    margin-top: 1em;
-    background: #e56565;
-    height: 3em;
-    text-align: center;
-    color: white;
+    padding: 2em;
+    margin:  2em auto ;
+    background-color: white;
+    border-radius: 10px;
+}
+.details .prepa h2{
+   color: black;
+    text-shadow: none;
+}
+
+.details .prepa h3{
     font-size: 2em;
-    padding-top: 1em;
-    padding-bottom: 1em;
+}
+
+.details .prepa p{
+    text-align: start;
+    margin: 1em;
+}
+
+.commentaires form{
+    font-family: "Arima", system-ui;
+color: white;
+    width: 90%;
+    padding: 40px;
+   margin: 2em auto;
+    background: rgba(18, 69, 89, 0.49);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+}
+
+.commentaires form textarea{
+   background-color: transparent;
+    border: #598392 solid;
+    border-radius: 10px;
+    height: 100px;
+    width: 100%;
+    margin-top: 20px;
+}
+.commentaires form div {
+    display: flex;
+    width: 100%;
+    text-align: start;
+    margin-top: 1em;
+}
+.commentaires form div select{
+   margin-top: 20px;
+    font-family: "Arima", system-ui;
+    color: #ffffff;
+    width: 100%;
+    background-color: transparent;
+    border: #dadada solid;
+}
+.commentaires form div label{
+    position: absolute;
+}
+
+.commentaires form div button{
+    font-family: "Arima", system-ui;
+background-color: transparent;
+    color: #ffffff;
+    border: solid 3px #598392;
+    box-shadow: none;
+    width: 100px;
+    height: 35px;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 5px;
+    text-transform: uppercase;
+}
+
+/*Media queries*/
+@media (min-width: 768px) {
+    main .cards {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    main .cards .card{
+        margin: 1em;
+    }
+}
+
+@media (min-width: 1024px) {
+    main h2{
+        font-size: 3em;
+    }
+}
+
+
+
+
+
+
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+}
+
+.login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+}
+
+.login-box .user-box {
+    position: relative;
+}
+
+.login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+.login-box .user-box label {
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+    top: -30px;
+    left: 0;
+    color: #ff5513;
+    font-size: 16px;
+}
+
+.login-box form button {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #ff5513;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px
+}
+
+.login-box button:hover {
+    background: #ff5513;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 5px #ff5513,
+    0 0 25px #ff5513,
+    0 0 50px #ff5513,
+    0 0 100px #ff5513;
+}
+
+.login-box button span {
+    position: absolute;
+    display: block;
+}
+
+.login-box button span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff5513);
+    animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+    0% {
+        left: -100%;
+    }
+    50%,100% {
+        left: 100%;
+    }
+}
+
+.login-box button span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #ff5513);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+    0% {
+        top: -100%;
+    }
+    50%,100% {
+        top: 100%;
+    }
+}
+
+.login-box button span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #ff5513);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+    0% {
+        right: -100%;
+    }
+    50%,100% {
+        right: 100%;
+    }
+}
+
+.login-box button span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #ff5513);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+    0% {
+        bottom: -100%;
+    }
+    50%,100% {
+        bottom: 100%;
+    }
 }

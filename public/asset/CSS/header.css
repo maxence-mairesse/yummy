@@ -1,0 +1,127 @@
+header{
+    background-color: #cc3800;
+    text-align: center;
+    font-size: 1em;
+    color: white;
+    padding: 0.8em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Arima", system-ui;
+}
+header h1{
+    width: fit-content;
+}
+
+header h1 span {
+    font-size: 0.7em;
+}
+header h1 a{
+    text-decoration: none;
+    color: white;
+}
+header .login{
+    color: white;
+    font-size: 0.8em;
+    text-decoration: none;
+
+}
+.name{
+    margin-right: 1em;
+}
+
+
+/*Navigation */
+.hidden {
+    display: none;
+    transition: ease-in .3s;
+
+}
+#overlay{
+    position: fixed;
+    top: 95px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Couleur de fond semi-transparente */
+    transition: ease-in .3s;
+    display: none; /* Masquer par défaut */
+}
+.button-nav{
+    padding-left: 1em;
+    padding-right: 1em ;
+    margin-right: 1em;
+    text-align: center;
+    font-size: 0.8em;
+    border-right: solid 1px white ;
+}
+#button-navigation:hover{
+    cursor: pointer;
+}
+nav{
+
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    left: 0;
+    top: 31px;
+    text-align: left;
+    color: #ff5513;
+    padding-left: 1em;
+    opacity: 1;
+    transition: ease-in .3s;
+}
+nav h2{margin: 1em 0 0.8em 0;
+    font-size: 0.8em;
+}
+nav li {
+    height: 1em;
+    margin: 0.2em
+}
+nav li:last-child {
+    margin-bottom: 1em;
+}
+nav li:first-child {
+    margin-top: 1em;
+}
+nav li a{
+    display: block;
+    height: 100%;
+    color: black;
+    font-size: 0.6em;
+    text-decoration: none;
+    transition: .5s;
+}
+nav li a:hover{
+    color: #ff5513;
+    transition: .5s;
+}
+
+/*Media queries*/
+@media (min-width: 768px) {
+    nav h2{
+        font-size: 1.2em;
+
+    }
+    nav li a{
+        font-size: 1em;
+        margin: 0 1em 0 0;
+
+    }
+}
+
+@media (min-width: 1024px) {
+    header{
+        padding: 1.5em;
+    }
+    header .login{
+        font-size: 1em;
+    }
+    header .button-nav{
+        font-size: 1.5em;
+    }
+   header h1{
+
+font-size: 2em;
+   }
+}

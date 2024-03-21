@@ -4,9 +4,14 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="../../public/asset/favicon/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="../../public/asset/CSS/reset.css">
-    <link rel="stylesheet" href="../../public/asset/CSS/style.css">
+    <link rel="shortcut icon" href="public/asset/favicon/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/public/asset/CSS/reset.css">
+    <link rel="stylesheet" href="/public/asset/CSS/style.css">
+    <link rel="stylesheet" href="/public/asset/CSS/header.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap" rel="stylesheet">
+
     <script src="https://kit.fontawesome.com/d16614f244.js" crossorigin="anonymous"></script>
     <title>Yummy</title>
 </head>
@@ -31,5 +36,5 @@
     </div>
     <h1><a href="/">Yummy <span>おいしい</span></a></h1>
     <?= isset($_SESSION['appUser']) ? "<span  class='login name'>Bonjour ".$_SESSION['appUser']->getPseudo()."</span> <span><a class='login' href='/logout'> Deconnexion</a></span><span><a href='/profil' class='login name'>Profil</a></span>
-" : "<a href='/login' class='login name'>connexion</a> " ?>
+" : "<a href='/login' class='login name'>Connexion</a> " ?>
 </header>
