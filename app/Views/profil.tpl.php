@@ -47,8 +47,7 @@
                     <span></span>
                     <span></span>
                     <span></span>
-                    S'inscrire
-                </button>
+Modifier                </button>
             </form>
 
         </div>
