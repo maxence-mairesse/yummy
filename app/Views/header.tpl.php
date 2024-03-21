@@ -34,7 +34,12 @@
             </ul>
         </nav>
     </div>
-    <h1><a href="/">Yummy <span>おいしい</span></a></h1>
-    <?= isset($_SESSION['appUser']) ? "<span  class='login name'>Bonjour ".$_SESSION['appUser']->getPseudo()."</span> <span><a class='login' href='/logout'> Deconnexion</a></span><span><a href='/profil' class='login name'>Profil</a></span>
-" : "<a href='/login' class='login name'>Connexion</a> " ?>
+    <div class="title">
+        <h1><a href="/">Yummy <span>おいしい</span></a></h1>
+    </div>
+    <?= isset($_SESSION['appUser']) ?
+        "<div class='link-log'><span  class='login name'>Bonjour ".$_SESSION['appUser']->getPseudo()."</span>
+        <span><a class='login' href='/logout'> Deconnexion</a></span>
+        <span><a href='/profil' class='login '>Profil</a></span></div>
+" : "<a href='/login' class='login'>Connexion</a> " ?>
 </header>

@@ -24,5 +24,6 @@
                 Se connecter
             </button>
         </form>
+        <p>Pas encore inscrit clique <a href="/inscription">ici</a></p>
     </div>
 </main>

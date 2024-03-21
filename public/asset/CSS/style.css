@@ -148,7 +148,7 @@ color: white;
 
 .commentaires form textarea{
    background-color: transparent;
-    border: #598392 solid;
+    border: white solid;
     border-radius: 10px;
     height: 100px;
     width: 100%;
@@ -186,29 +186,7 @@ background-color: transparent;
     text-transform: uppercase;
 }
 
-/*Media queries*/
-@media (min-width: 768px) {
-    main .cards {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
-    main .cards .card{
-        margin: 1em;
-    }
-}
-
-@media (min-width: 1024px) {
-    main h2{
-        font-size: 3em;
-    }
-}
-
-
-
-
-
-
+/*Page login*/
 .login-box {
     position: absolute;
     top: 50%;
@@ -220,19 +198,24 @@ background-color: transparent;
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
+    color: white;
 }
-
 .login-box h2 {
     margin: 0 0 30px;
     padding: 0;
     color: #fff;
     text-align: center;
 }
-
+.login-box p{
+    margin-top: 1em;
+}
+.login-box a {
+    text-decoration: none;
+    color: #ff5513;
+}
 .login-box .user-box {
     position: relative;
 }
-
 .login-box .user-box input {
     width: 100%;
     padding: 10px 0;
@@ -254,7 +237,6 @@ background-color: transparent;
     pointer-events: none;
     transition: .5s;
 }
-
 .login-box .user-box input:focus ~ label,
 .login-box .user-box input:valid ~ label {
     top: -30px;
@@ -262,7 +244,6 @@ background-color: transparent;
     color: #ff5513;
     font-size: 16px;
 }
-
 .login-box form button {
     position: relative;
     display: inline-block;
@@ -276,7 +257,6 @@ background-color: transparent;
     margin-top: 40px;
     letter-spacing: 4px
 }
-
 .login-box button:hover {
     background: #ff5513;
     color: #fff;
@@ -287,12 +267,10 @@ background-color: transparent;
     0 0 50px #ff5513,
     0 0 100px #ff5513;
 }
-
 .login-box button span {
     position: absolute;
     display: block;
 }
-
 .login-box button span:nth-child(1) {
     top: 0;
     left: -100%;
@@ -301,7 +279,6 @@ background-color: transparent;
     background: linear-gradient(90deg, transparent, #ff5513);
     animation: btn-anim1 1s linear infinite;
 }
-
 @keyframes btn-anim1 {
     0% {
         left: -100%;
@@ -310,7 +287,6 @@ background-color: transparent;
         left: 100%;
     }
 }
-
 .login-box button span:nth-child(2) {
     top: -100%;
     right: 0;
@@ -320,7 +296,6 @@ background-color: transparent;
     animation: btn-anim2 1s linear infinite;
     animation-delay: .25s
 }
-
 @keyframes btn-anim2 {
     0% {
         top: -100%;
@@ -329,7 +304,6 @@ background-color: transparent;
         top: 100%;
     }
 }
-
 .login-box button span:nth-child(3) {
     bottom: 0;
     right: -100%;
@@ -339,7 +313,6 @@ background-color: transparent;
     animation: btn-anim3 1s linear infinite;
     animation-delay: .5s
 }
-
 @keyframes btn-anim3 {
     0% {
         right: -100%;
@@ -348,7 +321,6 @@ background-color: transparent;
         right: 100%;
     }
 }
-
 .login-box button span:nth-child(4) {
     bottom: -100%;
     left: 0;
@@ -358,7 +330,6 @@ background-color: transparent;
     animation: btn-anim4 1s linear infinite;
     animation-delay: .75s
 }
-
 @keyframes btn-anim4 {
     0% {
         bottom: -100%;
@@ -367,3 +338,28 @@ background-color: transparent;
         bottom: 100%;
     }
 }
+
+
+
+
+/*Media queries*/
+@media (min-width: 768px) {
+    main .cards {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    main .cards .card{
+        margin: 1em;
+    }
+    .login-box{
+        width: 400px;
+    }
+}
+
+@media (min-width: 1024px) {
+    main h2{
+        font-size: 3em;
+    }
+}
+

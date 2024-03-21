@@ -1,5 +1,4 @@
-<h2>Ajouter un utilisateur</h2>
-
+<main>
 <!-- Si la variable $errors existe on affiche les erreurs -->
 <?php
 
@@ -13,31 +12,43 @@ if (isset($errors)): ?>
     </div>
 <?php endif ?>
 
-<form action="" method="POST" >
-    <div >
-        <label for="email" >Email</label>
-        <input type="email" name="email" id="email" placeholder="Email de connexion" >
-    </div>
-    <div >
-        <label for="lastname">Nom</label>
-        <input type="text" name="lastname" id="lastname" placeholder="Nom de l'utilisateur"  aria-describedby="subtitleHelpBlock">
-    </div>
-    <div >
-        <label for="firstname">Prénom</label>
-        <input type="text" name="firstname" id="firstname" placeholder="Prénom de l'utilisateur"  aria-describedby="subtitleHelpBlock">
-    </div>
-    <div >
-        <label for="Pseudo">Pseudo</label>
-        <input type="text" name="Pseudo" id="Pseudo" placeholder="Pseudo"  aria-describedby="subtitleHelpBlock">
-    </div>
 
 
-    <div >
-        <label for="password">Mot de passe</label>
-        <input type="password" name="password" id="password" placeholder="Mot de passe pour la connection"  aria-describedby="subtitleHelpBlock">
-    </div>
-    <div >
-        <button type="submit" >Valider</button>
-    </div>
-    <input type="hidden" name="tokenCSRF" value="<?= $_SESSION['tokenCSRF'] ?>">
-</form>
+<div class="login-box">
+    <h2>Login</h2>
+    <form method="POST">
+        <div class="user-box">
+            <input  type="email" id="email" name="email"  required="">
+            <label for="email">Email</label>
+        </div>
+        <div class="user-box">
+            <input type="password" id="password" name="password"  required="">
+            <label for="password">Password</label>
+        </div>
+
+        <div class="user-box">
+            <input type="text" name="lastname" id="lastname"  required=""  aria-describedby="subtitleHelpBlock">
+            <label for="lastname">Nom</label>
+        </div>
+        <div class="user-box">
+            <input type="text" name="firstname" id="firstname"  required=""  aria-describedby="subtitleHelpBlock">
+            <label for="firstname">Prénom</label>
+        </div>
+        <div class="user-box">
+            <input type="text" name="Pseudo" id="Pseudo" required=""  aria-describedby="subtitleHelpBlock">
+            <label for="Pseudo">Pseudo</label>
+        </div>
+
+        <input type="hidden" name="tokenCSRF" value="<?= $_SESSION['tokenCSRF'] ?>">
+
+        <button type="submit">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            S'inscrire
+        </button>
+    </form>
+
+</div>
+</main>

@@ -9,16 +9,17 @@ header{
     justify-content: space-between;
     font-family: "Arima", system-ui;
 }
-header h1{
-    width: fit-content;
-}
 
-header h1 span {
+
+header .title h1 span {
     font-size: 0.7em;
 }
-header h1 a{
+header .title h1 a{
     text-decoration: none;
     color: white;
+}
+.title{
+    text-align: center;
 }
 header .login{
     color: white;
@@ -28,6 +29,7 @@ header .login{
 }
 .name{
     margin-right: 1em;
+    display: none;
 }
 
 
@@ -64,7 +66,7 @@ nav{
     background-color: white;
     width: 100%;
     left: 0;
-    top: 31px;
+    top:50px;
     text-align: left;
     color: #ff5513;
     padding-left: 1em;
@@ -97,8 +99,21 @@ nav li a:hover{
     transition: .5s;
 }
 
+.link-log{
+    display: flex;
+    flex-direction: column;
+}
+
 /*Media queries*/
 @media (min-width: 768px) {
+    header h1{
+
+        font-size: 1.5em;
+        margin-left: 200px;
+    }
+    nav{
+        top: 50px;
+    }
     nav h2{
         font-size: 1.2em;
 
@@ -108,9 +123,21 @@ nav li a:hover{
         margin: 0 1em 0 0;
 
     }
+    .name{
+
+        display: block;
+    }
+    .link-log{
+        flex-direction: row;
+    }
+    .link-log *{
+        margin-right: 0.5em;
+    }
+
 }
 
 @media (min-width: 1024px) {
+
     header{
         padding: 1.5em;
     }
@@ -121,7 +148,12 @@ nav li a:hover{
         font-size: 1.5em;
     }
    header h1{
-
-font-size: 2em;
+        font-size: 2em;
+   }
+   nav{
+       top: 80px;
+   }
+   nav ul li{
+       margin-bottom: 1em;
    }
 }
