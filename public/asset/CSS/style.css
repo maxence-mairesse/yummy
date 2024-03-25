@@ -127,6 +127,11 @@ main .cards .card{
 
 .details .prepa h3{
     font-size: 2em;
+
+}
+.details .prepa div{
+    width: 300px;
+    margin: auto auto 4em;
 }
 
 .details .prepa p{
@@ -354,6 +359,10 @@ background-color: transparent;
     }
     .login-box{
         width: 400px;
+    }
+    .details .prepa div{
+        width: 600px;
+        margin: auto auto 4em;
     }
 }
 

@@ -44,15 +44,17 @@
     </div>
 
     <div class="prepa">
+
         <h2>Étapes de préparation</h2>
+
         <?php
 
         foreach ($data as $key => $d){
             if (strpos($key,'etape') !== false){
                 if($d !== null && $key !== 'etape_id'){
                     $etape = substr($key, -1);
-                    echo '<h3>'.$etape.'</h3>';
-                    echo '<p>'.$d.'</p>';
+                    echo '<div><h3>Etape '.$etape.'</h3>';
+                    echo '<p>'.$d.'</p></div>';
                 }
 
             }
