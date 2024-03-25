@@ -366,6 +366,12 @@ background-color: transparent;
         width: 600px;
         margin: auto auto 4em;
     }
+    .recette_ingredient{
+        flex-wrap: wrap;
+        justify-content: flex-start !important;
+        width: 80%;
+        margin: auto;
+    }
 }
 
 @media (min-width: 1024px) {
