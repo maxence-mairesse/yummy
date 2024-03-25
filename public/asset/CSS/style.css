@@ -194,6 +194,7 @@ background-color: transparent;
 
 .recette_ingredient{
     flex-wrap: wrap;
+    justify-content: flex-start
 }
 
 /*Page login*/
