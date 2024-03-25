@@ -65,7 +65,7 @@ class CoreController
 
 
         $RecetteModel = new Recette();
-        $Recette = $RecetteModel->findAll();
+        $Recette = $RecetteModel->findFavoris();
 
         foreach ($Recette as $key=>$value){
             $id=$value->id;

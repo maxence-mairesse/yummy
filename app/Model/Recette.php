@@ -23,6 +23,8 @@ class Recette extends CoreController
     protected $etape_id;
     protected $categorie_id;
     public $rateMoyen;
+    protected $favoris;
+
 
     /**
      * @return mixed
@@ -232,7 +234,13 @@ class Recette extends CoreController
     {
         $this->ingredient = $ingredient;
     }
-
+    public function findFavoris()
+    {
+        $pdo = Database::getPDO();
+        $sql = "SELECT * FROM recette where favoris <= 5";
+        $stmt = $pdo->query($sql);
+        return $stmt->fetchAll(PDO::FETCH_CLASS, 'app\Model\Recette');
+    }
     public function findAll()
     {
         $pdo = Database::getPDO();
