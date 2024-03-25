@@ -192,6 +192,10 @@ background-color: transparent;
     text-transform: uppercase;
 }
 
+.recette_ingredient{
+    flex-wrap: wrap;
+}
+
 /*Page login*/
 .login-box {
     position: absolute;
