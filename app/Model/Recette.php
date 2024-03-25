@@ -237,7 +237,7 @@ class Recette extends CoreController
     public function findFavoris()
     {
         $pdo = Database::getPDO();
-        $sql = "SELECT * FROM recette where favoris <= 5";
+        $sql = "SELECT * FROM recette where favoris <= 5 and favoris > 0";
         $stmt = $pdo->query($sql);
         return $stmt->fetchAll(PDO::FETCH_CLASS, 'app\Model\Recette');
     }
