@@ -4,17 +4,17 @@
 //dump($time);
 ?>
 <main class="details">
-    <h2><?= $data['name']  ?></h2>
+    <h2><?= $data['name'] ?></h2>
     <div class="presentation">
         <section class="image">
-            <img src="<?=$data['picture']?>">
+            <img src="<?= $data['picture'] ?>">
         </section>
         <section class="description">
             <ul>
-                <li >Description: <?= $data['description'] ?></li>
-                <li>Temps de préparation: <?=$data['preparation']?> <i class="fa-regular fa-clock"></i> </li>
-                <li> Temps de cuisson: <?=$data['cuisson']?>  <i class="fa-regular fa-clock"></i> </li>
-                <li >
+                <li>Description: <?= $data['description'] ?></li>
+                <li>Temps de préparation: <?= $data['preparation'] ?> <i class="fa-regular fa-clock"></i></li>
+                <li> Temps de cuisson: <?= $data['cuisson'] ?> <i class="fa-regular fa-clock"></i></li>
+                <li>
                     Note:
                     <span class="star">
                     <?php
@@ -22,15 +22,12 @@
                     $int = floor($rate);
                     $dec = $rate - $int;
 
-                    for ($i = 1; $i <=5; $i++){
-                        if ($i<=$rate){
+                    for ($i = 1; $i <= 5; $i++) {
+                        if ($i <= $rate) {
                             echo '<i class="fa-solid fa-star "></i>';
-                        }elseif ($i == $int + 1 && $dec >= 0.5){
+                        } elseif ($i == $int + 1 && $dec >= 0.5) {
                             echo '<i class="fa-solid fa-star-half-stroke"></i>';
-                        }
-
-
-                        else{
+                        } else {
                             echo '<i class="fa-regular fa-star"></i>';
                         }
                     }
@@ -49,12 +46,12 @@
 
         <?php
 
-        foreach ($data as $key => $d){
-            if (strpos($key,'etape') !== false){
-                if($d !== null && $key !== 'etape_id'){
+        foreach ($data as $key => $d) {
+            if (strpos($key, 'etape') !== false) {
+                if ($d !== null && $key !== 'etape_id') {
                     $etape = substr($key, -1);
-                    echo '<div><h3>Etape '.$etape.'</h3>';
-                    echo '<p>'.$d.'</p></div>';
+                    echo '<div><h3>Etape ' . $etape . '</h3>';
+                    echo '<p>' . $d . '</p></div>';
                 }
 
             }
@@ -70,14 +67,14 @@
         <div class="cards recette_ingredient">
             <?php
 
-            foreach($viewData['ingredient'] as $ingredient):?>
+            foreach ($viewData['ingredient'] as $ingredient):?>
 
                 <div class="card">
                     <div class="card-head">
-                        <img src="<?= $ingredient['picture']?> alt="<?= $ingredient['name']?>">
+                        <img src="<?= $ingredient['picture'] ?> alt="<?= $ingredient['name'] ?>">
                     </div>
                     <div class="card-body">
-                        <h3> <?=$ingredient['name'] ?></h3>
+                        <h3> <?= $ingredient['name'] ?></h3>
                     </div>
 
                 </div>
@@ -119,18 +116,18 @@
 
 
 
-":""
+" : ""
 
-       ?>
+        ?>
         <div class="allComment">
-        <?php foreach ($viewData['commentary'] as $value): ?>
-            <div class="block-commentaire">
-                <h4><?=$value['pseudo']?> a dit:</h4>
-                <div>
-                    <p><?=$value['commentaire']?></p>
+            <?php foreach ($viewData['commentary'] as $value): ?>
+                <div class="block-commentaire">
+                    <h4><?= $value['pseudo'] ?> a dit:</h4>
+                    <div>
+                        <p><?= $value['commentaire'] ?></p>
+                    </div>
                 </div>
-            </div>
-            <?php endforeach;?>
+            <?php endforeach; ?>
         </div>
     </section>
 

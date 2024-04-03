@@ -1,9 +1,9 @@
 <?php
 
 namespace app\Controller;
+
 use app\Model\Categorie;
 use app\Model\Commentary;
-use app\Model\duree;
 use app\Model\Ingedient;
 use app\Model\Rate;
 use app\Model\Recette;
@@ -14,11 +14,9 @@ class RecetteController extends CoreController
     public function recetteById($param)
     {
         $id = $param;
-$ingredients = new Ingedient();
-$ingredient = $ingredients->findByRecette($id);
-        $dataToSend['ingredient']= $ingredient;
-
-
+        $ingredients = new Ingedient();
+        $ingredient = $ingredients->findByRecette($id);
+        $dataToSend['ingredient'] = $ingredient;
 
 
         $recette = new Recette();
@@ -27,87 +25,81 @@ $ingredient = $ingredients->findByRecette($id);
         $rates = $rate->findByRecette($id);
 
 
-        $commentaryModel=new Commentary();
-        $commentary= $commentaryModel->findByRecette($id);
-        $dataToSend['commentary']= $commentary;
-        if (empty($rates)){
+        $commentaryModel = new Commentary();
+        $commentary = $commentaryModel->findByRecette($id);
+        $dataToSend['commentary'] = $commentary;
+        if (empty($rates)) {
             $rateMoyen = 0;
-        }
-        else{
+        } else {
             $somme = 0;
-            foreach ($rates as $rate){
+            foreach ($rates as $rate) {
                 $convetRate = $rate['rate'];
                 $somme = $somme + $convetRate;
             }
             $totalRate = sizeof($rates);
-            $rateMoyen = $somme/$totalRate;
+            $rateMoyen = $somme / $totalRate;
 
         }
-        $result['rateMoyen'] =$rateMoyen;
+        $result['rateMoyen'] = $rateMoyen;
+        $result['preparation'] = $this->setTime($result, 'time', 'Preparation');
+        $result['cuisson'] = $this->setTime($result, 'time_cuisson', 'Cuisson');
 
-        $result['preparation']= $this->setTime($result,'time','Preparation');
-        $result['cuisson']= $this->setTime($result,'time_cuisson','Cuisson');
-
-
-        $dataToSend['details']= $result;
-        $this->show('details',$dataToSend);
+        $dataToSend['details'] = $result;
+        $this->show('details', $dataToSend);
 
     }
 
-    private function setTime($result,$time,$var)
+    private function setTime($result, $time, $var)
     {
 
-        $time = DateTime::createFromFormat('H:i:s',$result[$time]);
+        $time = DateTime::createFromFormat('H:i:s', $result[$time]);
         $heure = $time->format('H');
-        $minutes =$time->format('i');
+        $minutes = $time->format('i');
 
-        if ($heure == 0){
-            return   ($minutes.' min');
-        }else if ($heure >0 && $minutes>0){
-            return  ($heure.'h'.$minutes.'min');
-        }else {
-            return ($heure.' h');
+        if ($heure == 0) {
+            return ($minutes . ' min');
+        } else if ($heure > 0 && $minutes > 0) {
+            return ($heure . 'h' . $minutes . 'min');
+        } else {
+            return ($heure . ' h');
         }
 
     }
+
     public function commentaire($param)
     {
-        $user_id= $_SESSION['userId'];
+        $user_id = $_SESSION['userId'];
         $recette_id = $param;
         $description = ($_POST['commentaire']);
         $commentary = new Commentary();
-        $rate =$_POST['rate'];
+        $rate = $_POST['rate'];
         $rates = new Rate();
 
-if ($rate != '' && $description != ''){
-    $commentary->setUserId($user_id);
-    $commentary->setRecetteId($recette_id);
-    $commentary->setCommentaire($description);
-    $commentary->save();
+        if ($rate != '' && $description != '') {
+            $commentary->setUserId($user_id);
+            $commentary->setRecetteId($recette_id);
+            $commentary->setCommentaire($description);
+            $commentary->save();
 
-    $rates->setRate($rate);
-    $rates->setUserId($user_id);
-    $rates->setRecetteId($recette_id);
-    $rates->save();
-}elseif ($rate != '' && $description == ''){
-    $rates->setRate($rate);
-    $rates->setUserId($user_id);
-    $rates->setRecetteId($recette_id);
-    $rates->save();
-}elseif ($rate == '' && $description != ''){
-    $commentary->setUserId($user_id);
-    $commentary->setRecetteId($recette_id);
-    $commentary->setCommentaire($description);
-    $commentary->save();
+            $rates->setRate($rate);
+            $rates->setUserId($user_id);
+            $rates->setRecetteId($recette_id);
+            $rates->save();
+        } elseif ($rate != '' && $description == '') {
+            $rates->setRate($rate);
+            $rates->setUserId($user_id);
+            $rates->setRecetteId($recette_id);
+            $rates->save();
+        } elseif ($rate == '' && $description != '') {
+            $commentary->setUserId($user_id);
+            $commentary->setRecetteId($recette_id);
+            $commentary->setCommentaire($description);
+            $commentary->save();
 
-}
-            header('Location: /recette/'.$param);
-            exit();
         }
-
-
-
-
+        header('Location: /recette/' . $param);
+        exit();
+    }
 
 
     public function recetteBycategory($param)
@@ -120,33 +112,31 @@ if ($rate != '' && $description != ''){
         $categorie = $CategorieModel->findById($param);
 
 
-        foreach ($recettes as $key=>$value){
-            $id= $value->getId();
+        foreach ($recettes as $key => $value) {
+            $id = $value->getId();
             $rate = new Rate();
             $rates = $rate->findByRecette($id);
 
 
-            if (empty($rates)){
+            if (empty($rates)) {
                 $rateMoyen = 0;
-            }
-            else{
+            } else {
                 $somme = 0;
-                foreach ($rates as $rate){
+                foreach ($rates as $rate) {
 
                     $convetRate = $rate['rate'];
                     $somme = $somme + $convetRate;
                 }
                 $totalRate = sizeof($rates);
-                $rateMoyen = $somme/$totalRate;
+                $rateMoyen = $somme / $totalRate;
                 $value->rateMoyen = $rateMoyen;
 
             }
-            if($value->rateMoyen === null){
+            if ($value->rateMoyen === null) {
                 $value->rateMoyen = 0;
-            };
+            }
 
         }
-
 
 
         $data['recette'] = $recettes;
@@ -154,10 +144,6 @@ if ($rate != '' && $description != ''){
 
         $this->show('list', $data);
     }
-
-
-
-
 
 
 }

@@ -5,7 +5,7 @@
     font-style: normal;
 }
 
-body{
+body {
     background-image: url("../img/background.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -26,9 +26,11 @@ main h2 {
     font-size: 1.4em;
     font-family: "Arima", system-ui;
 }
-.fa-heart{
+
+.fa-heart {
     color: red;
 }
+
 main .cards {
     display: flex;
     flex-direction: column;
@@ -37,7 +39,7 @@ main .cards {
 
 }
 
-main .cards .card{
+main .cards .card {
     width: 200px;
     border-radius: 10px;
     overflow: hidden;
@@ -46,12 +48,15 @@ main .cards .card{
 
 
 }
+
 .card-head img {
     width: 100%;
     height: 150px;
     object-fit: cover;
-    object-position: center;}
-.card-body{
+    object-position: center;
+}
+
+.card-body {
     padding-top: 25px;
     height: 50px;
     color: #0B3948;
@@ -60,7 +65,7 @@ main .cards .card{
 
 }
 
-.card-footer{
+.card-footer {
 
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -71,20 +76,22 @@ main .cards .card{
 
 }
 
-.cards a{
+.cards a {
     text-decoration: none;
     color: black;
 }
-.card{
+
+.card {
     text-align: center
 }
 
 /*Page details*/
-.details{
+.details {
     color: #000000;
     font-family: "Arima", system-ui;
 }
-    /* Block présentation*/
+
+/* Block présentation*/
 .details .presentation {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     width: 80%;
@@ -93,93 +100,103 @@ main .cards .card{
     background-color: white;
     border-radius: 10px;
 }
+
 .details .presentation .image img {
     width: 40vw;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 }
+
 .details .description ul {
     width: fit-content;
     margin: auto;
 }
+
 .details .description ul li {
     text-align: left;
     margin: 1em;
 }
+
 .details .description ul li .star {
-   color: #ff5513;
+    color: #ff5513;
 }
-    /* Block préparation */
+
+/* Block préparation */
 .details .prepa {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     width: 80%;
     padding: 2em;
-    margin:  2em auto ;
+    margin: 2em auto;
     background-color: white;
     border-radius: 10px;
 }
-.details .prepa h2{
-   color: black;
+
+.details .prepa h2 {
+    color: black;
     text-shadow: none;
 }
 
-.details .prepa h3{
+.details .prepa h3 {
     font-size: 2em;
 
 
 }
-.details .prepa div{
+
+.details .prepa div {
     width: 300px;
     margin: auto auto 4em;
 }
 
-.details .prepa p{
+.details .prepa p {
     text-align: start;
     margin: 1em;
 }
 
-.commentaires form{
+.commentaires form {
     font-family: "Arima", system-ui;
-color: white;
+    color: white;
     width: 90%;
     padding: 40px;
-   margin: 2em auto;
+    margin: 2em auto;
     background: rgba(18, 69, 89, 0.49);
     box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
     border-radius: 10px;
 }
 
-.commentaires form textarea{
-   background-color: transparent;
+.commentaires form textarea {
+    background-color: transparent;
     border: white solid;
     border-radius: 10px;
     height: 100px;
     width: 100%;
     margin-top: 20px;
 }
+
 .commentaires form div {
     display: flex;
     width: 100%;
     text-align: start;
     margin-top: 1em;
 }
-.commentaires form div select{
-   margin-top: 20px;
+
+.commentaires form div select {
+    margin-top: 20px;
     font-family: "Arima", system-ui;
     color: #ffffff;
     width: 100%;
     background-color: transparent;
     border: #dadada solid;
 }
-.commentaires form div label{
+
+.commentaires form div label {
     position: absolute;
 }
 
-.commentaires form div button{
+.commentaires form div button {
     font-family: "Arima", system-ui;
-background-color: transparent;
+    background-color: transparent;
     color: #ffffff;
     border: solid 3px #598392;
     box-shadow: none;
@@ -192,7 +209,6 @@ background-color: transparent;
 }
 
 
-
 /*Page login*/
 .login-box {
     position: absolute;
@@ -201,28 +217,33 @@ background-color: transparent;
     width: 300px;
     padding: 40px;
     transform: translate(-50%, -50%);
-    background: rgba(0,0,0,.5);
+    background: rgba(0, 0, 0, .5);
     box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
     border-radius: 10px;
     color: white;
 }
+
 .login-box h2 {
     margin: 0 0 30px;
     padding: 0;
     color: #fff;
     text-align: center;
 }
-.login-box p{
+
+.login-box p {
     margin-top: 1em;
 }
+
 .login-box a {
     text-decoration: none;
     color: #ff5513;
 }
+
 .login-box .user-box {
     position: relative;
 }
+
 .login-box .user-box input {
     width: 100%;
     padding: 10px 0;
@@ -234,9 +255,10 @@ background-color: transparent;
     outline: none;
     background: transparent;
 }
+
 .login-box .user-box label {
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     padding: 10px 0;
     font-size: 16px;
@@ -244,6 +266,7 @@ background-color: transparent;
     pointer-events: none;
     transition: .5s;
 }
+
 .login-box .user-box input:focus ~ label,
 .login-box .user-box input:valid ~ label {
     top: -30px;
@@ -251,6 +274,7 @@ background-color: transparent;
     color: #ff5513;
     font-size: 16px;
 }
+
 .login-box form button {
     position: relative;
     display: inline-block;
@@ -264,6 +288,7 @@ background-color: transparent;
     margin-top: 40px;
     letter-spacing: 4px
 }
+
 .login-box button:hover {
     background: #ff5513;
     color: #fff;
@@ -274,10 +299,12 @@ background-color: transparent;
     0 0 50px #ff5513,
     0 0 100px #ff5513;
 }
+
 .login-box button span {
     position: absolute;
     display: block;
 }
+
 .login-box button span:nth-child(1) {
     top: 0;
     left: -100%;
@@ -286,14 +313,16 @@ background-color: transparent;
     background: linear-gradient(90deg, transparent, #ff5513);
     animation: btn-anim1 1s linear infinite;
 }
+
 @keyframes btn-anim1 {
     0% {
         left: -100%;
     }
-    50%,100% {
+    50%, 100% {
         left: 100%;
     }
 }
+
 .login-box button span:nth-child(2) {
     top: -100%;
     right: 0;
@@ -303,14 +332,16 @@ background-color: transparent;
     animation: btn-anim2 1s linear infinite;
     animation-delay: .25s
 }
+
 @keyframes btn-anim2 {
     0% {
         top: -100%;
     }
-    50%,100% {
+    50%, 100% {
         top: 100%;
     }
 }
+
 .login-box button span:nth-child(3) {
     bottom: 0;
     right: -100%;
@@ -320,14 +351,16 @@ background-color: transparent;
     animation: btn-anim3 1s linear infinite;
     animation-delay: .5s
 }
+
 @keyframes btn-anim3 {
     0% {
         right: -100%;
     }
-    50%,100% {
+    50%, 100% {
         right: 100%;
     }
 }
+
 .login-box button span:nth-child(4) {
     bottom: -100%;
     left: 0;
@@ -337,16 +370,15 @@ background-color: transparent;
     animation: btn-anim4 1s linear infinite;
     animation-delay: .75s
 }
+
 @keyframes btn-anim4 {
     0% {
         bottom: -100%;
     }
-    50%,100% {
+    50%, 100% {
         bottom: 100%;
     }
 }
-
-
 
 
 /*Media queries*/
@@ -356,26 +388,30 @@ background-color: transparent;
         flex-direction: row;
         justify-content: center;
     }
-    main .cards .card{
+
+    main .cards .card {
         margin: 1em;
     }
-    .login-box{
+
+    .login-box {
         width: 400px;
     }
-    .details .prepa div{
+
+    .details .prepa div {
         width: 600px;
         margin: auto auto 4em;
     }
-    .recette_ingredient{
+
+    .recette_ingredient {
         flex-wrap: wrap;
-        justify-content: flex-start !important;
+        justify-content: flex-start;
         width: 80%;
         margin: auto;
     }
 }
 
 @media (min-width: 1024px) {
-    main h2{
+    main h2 {
         font-size: 3em;
     }
 }
